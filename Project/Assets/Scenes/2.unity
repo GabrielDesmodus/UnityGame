@@ -1360,6 +1360,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4891973973147364, guid: b85ec510ba680c74d8144f09314321a1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.7599998
+      objectReference: {fileID: 0}
+    - target: {fileID: 4891973973147364, guid: b85ec510ba680c74d8144f09314321a1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 4287259687548988, guid: b85ec510ba680c74d8144f09314321a1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 4287259687548988, guid: b85ec510ba680c74d8144f09314321a1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 114629487873227858, guid: b85ec510ba680c74d8144f09314321a1,
+        type: 3}
+      propertyPath: takeDamage
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b85ec510ba680c74d8144f09314321a1, type: 3}
 --- !u!1 &1053635519
@@ -1461,6 +1482,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1066189845 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4294025028207430319, guid: 36120bf518d418845a66e4e65f4ae62e,
+    type: 3}
+  m_PrefabInstance: {fileID: 4294025028811148561}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1114346580
 GameObject:
   m_ObjectHideFlags: 0
@@ -2318,7 +2345,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 2.3, y: 73.68}
-  m_EdgeRadius: 1.63
+  m_EdgeRadius: 5.04
 --- !u!4 &1768307615
 Transform:
   m_ObjectHideFlags: 0
@@ -2816,6 +2843,18 @@ PrefabInstance:
       propertyPath: canBoundarie
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9436760781337469, guid: e356b63f81afa7544979be66a4e5c6d1, type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 1066189845}
+    - target: {fileID: 9436760781337469, guid: e356b63f81afa7544979be66a4e5c6d1, type: 3}
+      propertyPath: boundarie1
+      value: -41.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 9436760781337469, guid: e356b63f81afa7544979be66a4e5c6d1, type: 3}
+      propertyPath: boundarie2
+      value: 22.96
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e356b63f81afa7544979be66a4e5c6d1, type: 3}
 --- !u!1001 &673311336172615177
@@ -3191,5 +3230,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5862238685789774395, guid: f9f777ae22849ad4daad1072a584183e,
+        type: 3}
+      propertyPath: prdes
+      value: 
+      objectReference: {fileID: 1677995394}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9f777ae22849ad4daad1072a584183e, type: 3}

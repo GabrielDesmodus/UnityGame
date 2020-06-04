@@ -28,7 +28,6 @@ public class Player : MonoBehaviour
     private int dmg;
     private Transform enemy;
     private int dL; //Damage inflicted
-    //private bool hit;
     private Transform endMarker;
     private Transform lastMarker;
     public float wait;
@@ -47,60 +46,31 @@ public class Player : MonoBehaviour
         tP = 0;
         sword_0 = GameObject.Find("sword_0");
         cc = GameObject.FindGameObjectWithTag("Chao");
-
-        /*endMarker = enemy.position.x - 10;
-        lastMarker = 1;*/
-
         wait = 3;
     }
 
     void Update()
     {
         dWait += Time.deltaTime;
-        //if (dWait < 1.5f)
-        //{
-        //    Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), GameObject.FindGameObjectWithTag("Enemy").GetComponent<BoxCollider2D>());
-        ////    Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), GameObject.FindGameObjectWithTag("Enemy").GetComponent<CapsuleCollider2D>());
-        ////    Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), GameObject.FindGameObjectWithTag("Enemy").GetComponent<CircleCollider2D>());
-        ////    Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), GameObject.FindGameObjectWithTag("Enemy").GetComponent<EdgeCollider2D>());
-        ////    Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), GameObject.FindGameObjectWithTag("Enemy").GetComponent<PolygonCollider2D>());
-        //}
-
-        //if (dWait > 1.5f)
-        //{
-        //    Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), GameObject.FindGameObjectWithTag("Enemy").GetComponent<BoxCollider2D>(), false);
-        ////   // Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), GameObject.FindGameObjectWithTag("Enemy").GetComponent<CapsuleCollider2D>(), false);
-        ////    //Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), GameObject.FindGameObjectWithTag("Enemy").GetComponent<CircleCollider2D>(), false);
-        ////   // Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), GameObject.FindGameObjectWithTag("Enemy").GetComponent<EdgeCollider2D>(), false);
-        ////   // Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), GameObject.FindGameObjectWithTag("Enemy").GetComponent<PolygonCollider2D>(), false);
-        //}
 
         if (wait > 1.5f)
         {
             sprite.color = Color.white;
         }
-        /*if (hit)
-        {
-            Vector3.LerpUnclamped(enemy.position.x, endMarker, 2); 
-        }
-        */
 
         if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("atkSword"))
         {
-            dL = 45;
-            throwback = -1000;
+            
         }
 
         if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("atkSword2"))
         {
-            dL = 100;
-            throwback = -1000;
+            
         }
 
         if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("atkSword3"))
         {
-            dL = 200;
-            throwback = -3000;
+           
         }
 
        
@@ -108,28 +78,12 @@ public class Player : MonoBehaviour
         Attack();
         Movimentacao();
 
-        //GameObject Enemy = GameObject.Find("EN");
-        //EN enemyScript = Enemy.GetComponent<EN>();
-        //enemyScript.vidaAtualEn = dmg;
-        //hit = enemyScript.hit;
-
         wait += Time.deltaTime;
-
-        //if (hit == true)
-       // {
-          //  wait = 0;
-       // }
-        
-      //  var rigid2d = GetComponent<Rigidbody2D>();
-        /*if (rigid2d.velocity.magnitude > force && wait <1)
-        {
-            rigid2d.velocity = rigid2d.velocity.normalized * force;
-        }*/
     }
 
     void Attack()   
     {
-        
+        //Se o tempo desde o ultimo ataque for maior que o delay máximo para combo, o combo reseta
         if (lastClickedTime > maxComboDelay)
         {
             noOfClicks = 0;
@@ -144,7 +98,6 @@ public class Player : MonoBehaviour
         {
             click1 = true;
             clickx1 = true;
-            /*click2 = false;**/
             click3 = false;
         }
     
@@ -168,7 +121,6 @@ public class Player : MonoBehaviour
         {
             click3 = true;
             click1 = false;
-            /*click2 = false;*/
         }
         else
         {
@@ -181,6 +133,8 @@ public class Player : MonoBehaviour
             noOfClicks = 1;
             noOfClickspe = 1;
             animator.SetBool("Attack1", true);
+            dL = 45;
+            throwback = -1000;
         }
         else
         {
@@ -193,11 +147,8 @@ public class Player : MonoBehaviour
             noOfClicks = 2;
             noOfClickspe = 2;
             animator.SetBool("Attack2", true);
-        }
-        else
-        {
-            /*animator.SetBool("Attack2", false);*/
-
+            dL = 100;
+            throwback = -1000;
         }
 
         if (Input.GetButtonDown("Fire1") && click3 == true && lastClickedTime <= maxComboDelay && Time.time >tP)
@@ -205,6 +156,8 @@ public class Player : MonoBehaviour
             animator.SetBool("Attack3", true);
             noOfClicks = 0;
             tP = Time.time + 1;
+            dL = 200;
+            throwback = -3000;
         }
 
         if (Input.GetButtonDown("Fire2") && Time.time > tP)
@@ -212,44 +165,13 @@ public class Player : MonoBehaviour
             animator.SetBool("AttackX1", true);
             tP = Time.time + 1.35f;
         }
-        if (Input.GetButton("Fire3"))
-        {
-            animator.SetBool("shield", true);
-            /*sword_0.GetComponent<CapsuleCollider2D>().isTrigger = false;*/
-            velocidade = 0;
-        }
+
         else
         {
             animator.SetBool("shield", false);
             Physics2D.IgnoreCollision(sword_0.GetComponent<CapsuleCollider2D>(), cc1.GetComponent<BoxCollider2D>());
             velocidade = 14;
-            /*sword_0.GetComponent<CapsuleCollider2D>().isTrigger = true;*/
         }
-       /*else
-        {
-            animator.SetBool("AttackX1", false);
-        }
-
-        if (Input.GetButtonDown("Fire2"))
-        {
-        
-            animator.SetBool("ComboXY", true);
-            
-        }
-        else
-        {
-            animator.SetBool("ComboXY", false);
-        }
-
-        if (Input.GetButtonDown("Fire2") && noOfClickspe == 2)
-        {
-          
-            animator.SetBool("ComboXXY", true); 
-        }
-        else
-        {
-            animator.SetBool("ComboXXY", false);
-        }*/
     } 
 
     void Movimentacao()
@@ -278,55 +200,11 @@ public class Player : MonoBehaviour
         animator.SetBool("chao", estaNoChao);
     }
 
-    void OnTriggerEnter2D(Collider2D colisor)
-    {
-        if (colisor.gameObject.tag == "Enemy")
-        {
-            
-            
-            //dmg = dmg - dL;
-            //enemy.GetComponent<Rigidbody2D>().AddForce(transform.right * throwback);
-            /*Destroy(colisor.gameObject);*/
-        }
-    }
-
     public void TakeDamage(int damage)
     {
         if (dWait > 1.5f)
         {
-            if (transform.position.x - boundarie1 > 5 && transform.position.x - boundarie2 < -5)
-            {
-
-                transform.Translate(Vector2.right * -400 * Time.deltaTime);
-                transform.Translate(Vector2.up * 200 * Time.deltaTime);
-            }
-            else if (transform.position.x - boundarie1 < 2)
-            {
-                if (transform.eulerAngles.y == 180)
-                {
-                    transform.Translate(Vector2.right * -600 * Time.deltaTime);
-                    transform.Translate(Vector2.up * 200 * Time.deltaTime);
-                }
-                if (transform.eulerAngles.y == 0)
-                {
-                    transform.Translate(Vector2.right * 600 * Time.deltaTime);
-                    transform.Translate(Vector2.up * 200 * Time.deltaTime);
-                }
-            }
-
-            else if (transform.position.x - boundarie2 > -2)
-            {
-                if (transform.eulerAngles.y == 0)
-                {
-                    transform.Translate(Vector2.right * -600 * Time.deltaTime);
-                    transform.Translate(Vector2.up * 200 * Time.deltaTime);
-                }
-                if (transform.eulerAngles.y == 180)
-                {
-                    transform.Translate(Vector2.right * 600 * Time.deltaTime);
-                    transform.Translate(Vector2.up * 200 * Time.deltaTime);
-                }
-            }
+            
             dWait = 0;
             wait = 0;
             sprite.color = new Color(0.5283019f, 0f, 0f, 1f);
