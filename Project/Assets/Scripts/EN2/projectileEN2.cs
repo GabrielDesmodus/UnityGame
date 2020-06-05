@@ -6,7 +6,7 @@ public class projectileEN2 : MonoBehaviour
 {
   
    
-    public GameObject projectileDes;
+   // public GameObject projectileDes;
     private Animator anim;
    
 
@@ -54,46 +54,42 @@ public class projectileEN2 : MonoBehaviour
                 this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;
                 this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
             }
-            Instantiate(projectileDes, transform.position, transform.rotation);
+           // Instantiate(projectileDes, transform.position, transform.rotation);
 
-
-
-
-            
         }
-        
+
 
         if (colisor.gameObject.tag == "Chao")
         {
-            
+
             if (gameObject.name == "projectile2(Clone)")
             {
                 Destroy(gameObject);
                 this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;
                 this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
-                
+
             }
-            Instantiate(projectileDes, transform.position, transform.rotation);
+            //Instantiate(projectileDes, transform.position, transform.rotation);
 
 
 
 
-            
-            
 
 
 
-           
-            
+
+
+
+
 
         }
 
-        
 
+
+
+
+        }
 
 
     }
-
-   
-}
 

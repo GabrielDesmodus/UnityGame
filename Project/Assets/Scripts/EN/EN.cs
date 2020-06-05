@@ -8,7 +8,7 @@ public class EN : MonoBehaviour {
     private Animator animator;
     private bool atk;
     private Transform player;
-    public float dist;
+    private float dist;
     private Vector3 playerDistance;
     private float wait;
     private float waitForProjectile;
@@ -72,33 +72,31 @@ public class EN : MonoBehaviour {
 
     private void Flip()
     {
-        //Se o jogador estiver muito distante para a direita do inimigo
-        if (playerDistance.x > 0.5f)
+        //Se o jogador estiver a direita do inimigo
+        if (playerDistance.x > 0.5f && transform.eulerAngles.y == 180)
         {
             //Começa a contagem, depois de alguns segundos o inimigo vai se virar na direção do jogador
             waitForFlip += Time.deltaTime;
-            if (waitForFlip > 3)
+            if (waitForFlip > 1)
             {
                 transform.eulerAngles = new Vector3(0, 0, 0);
                 waitForFlip = 0;
             }   
         }
 
-        else if (playerDistance.x < 0.5f)
+        //Se o jogador estiver a esquerda do inimigo
+        else if (playerDistance.x <0.5f && transform.eulerAngles.y==0)
         {
             //Começa a contagem, depois de alguns segundos o inimigo vai se virar na direção do jogador
             waitForFlip += Time.deltaTime;
-            if (waitForFlip > 3)
+            if (waitForFlip > 1)
             {
                 transform.eulerAngles = new Vector3(0, 180, 0);
                 waitForFlip = 0;
             }
         }
 
-        else
-        {
-            waitForFlip = 0;
-        }
+       
     }
 
     private void Boundarie()
@@ -134,8 +132,8 @@ public class EN : MonoBehaviour {
         }
         else if(colisor.gameObject.tag == "Sword")
         {
-            
-            player.TakeDamage(0);
+
+            return;
         }
         
     }

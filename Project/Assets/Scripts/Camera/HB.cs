@@ -17,9 +17,7 @@ public class HB : MonoBehaviour {
 	
 	void Update ()
     {
-        GameObject Player = GameObject.Find("Player");
-        Player playerScript = Player.GetComponent<Player>();
-        life = playerScript.vida;
+        
         Vida();
 
     }
@@ -27,6 +25,9 @@ public class HB : MonoBehaviour {
 
     void Vida()
     {
+        GameObject Player = GameObject.Find("Player");
+        Player playerScript = Player.GetComponent<Player>();
+        life = playerScript.vida;
         transform.localScale = new Vector2((life*hb)/400,0.5f);
     }
 }

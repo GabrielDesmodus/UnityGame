@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
     private Transform endMarker;
     private Transform lastMarker;
     public float wait;
-    public float dWait; //Iframe time
+    public float iFrame; //Iframe time
     public float force;
     private float throwback;
     private SpriteRenderer sprite;
@@ -51,9 +51,9 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        dWait += Time.deltaTime;
+        iFrame += Time.deltaTime;
 
-        if (wait > 1.5f)
+        if (iFrame > 1.5f)
         {
             sprite.color = Color.white;
         }
@@ -78,7 +78,7 @@ public class Player : MonoBehaviour
         Attack();
         Movimentacao();
 
-        wait += Time.deltaTime;
+        //wait += Time.deltaTime;
     }
 
     void Attack()   
@@ -176,19 +176,19 @@ public class Player : MonoBehaviour
 
     void Movimentacao()
     {
-        if (Input.GetAxisRaw("Horizontal") > 0 && wait >0.25f)
+        if (Input.GetAxisRaw("Horizontal") > 0 && iFrame >0.25f)
         {
             transform.Translate(Vector2.right * velocidade * Time.deltaTime);
             transform.eulerAngles = new Vector2(0, 0);
         }
 
-        if (Input.GetAxisRaw("Horizontal") < 0 && wait> 0.25f)
+        if (Input.GetAxisRaw("Horizontal") < 0 && iFrame> 0.25f)
         {
             transform.Translate(Vector2.right * velocidade * Time.deltaTime);
             transform.eulerAngles = new Vector2(0, 180);
         }
 
-        if (Input.GetButtonDown("Jump") && estaNoChao && wait >1)
+        if (Input.GetButtonDown("Jump") && estaNoChao && iFrame >1)
         {
             var rigidbody2D = GetComponent<Rigidbody2D>();
             rigidbody2D.AddForce(transform.up * forcaPulo);
@@ -200,13 +200,14 @@ public class Player : MonoBehaviour
         animator.SetBool("chao", estaNoChao);
     }
 
+    //The enemy calls this function to deal damage to the player
     public void TakeDamage(int damage)
     {
-        if (dWait > 1.5f)
+        if (iFrame > 1.5f)
         {
             
-            dWait = 0;
-            wait = 0;
+            iFrame = 0;
+            //wait = 0;
             sprite.color = new Color(0.5283019f, 0f, 0f, 1f);
             vida -= (damage);
             if (vida < 0)
