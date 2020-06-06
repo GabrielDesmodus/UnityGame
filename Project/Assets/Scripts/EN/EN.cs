@@ -20,9 +20,7 @@ public class EN : MonoBehaviour {
     private SpriteRenderer damageSpriteRend;
     public bool canFlip;
     public bool canProjectile;
-    public bool canBoundarie;
     public GameObject projectile;
-    public float boundarie1, boundarie2; //boundaries made to impede the enemy from falling or getting in unallowed places
     public bool isEN3;
     private float waitForFlip;
 
@@ -101,23 +99,12 @@ public class EN : MonoBehaviour {
 
     private void Boundarie()
     {
-        //if (transform.position.x > boundarie1 && transform.position.x < boundarie2 && dist > 3) // if the enemy is not in the boundaries it keeps moving
-        //{
-            transform.Translate(Vector2.right * velocidade * Time.deltaTime);
-        //}
-        if (/*transform.position.x <= boundarie1&& */ dist > 9){ // if the enemy is on the boundaries it only moves if he looks at the right side
-            //if (transform.eulerAngles.y == 0)
-            //{
+        transform.Translate(Vector2.right * velocidade * Time.deltaTime);
+        if (dist > 9){ 
+            
                 transform.Translate(Vector2.right * velocidade * Time.deltaTime);
-            //}
+            
         }
-       // if (/*transform.position.x >= boundarie2&& */ dist > 9){
-            // if the enemy is on the boundaries it only moves if he is looks at the left side side
-          //  if (transform.eulerAngles.y == 180)
-           // {
-          //     transform.Translate(Vector2.right * velocidade * Time.deltaTime);
-           // }
-        //}
     }
 
     private void OnCollisionEnter2D(Collision2D colisor)
@@ -153,7 +140,8 @@ public class EN : MonoBehaviour {
                 GetComponent<Collider2D>().enabled = false;
                 GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
                 GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;
-           }
+            }
+
             else
             {
                 death = true;
@@ -163,17 +151,10 @@ public class EN : MonoBehaviour {
                 GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
                 GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;
             }
-            
         }
     }
     public void DamageSpriteF (bool DMF)
     {
         damageSpriteRend.enabled = DMF;
     }
-
-
-
-
-
-
 }

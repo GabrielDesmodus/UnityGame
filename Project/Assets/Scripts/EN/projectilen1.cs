@@ -35,29 +35,5 @@ public class projectilen1 : MonoBehaviour {
 
 
     }
-
-    void OnCollisionEnter2D(Collision2D colisor)
-    {
-        
-        if (colisor.gameObject.tag == "Player" && !anim.GetCurrentAnimatorStateInfo(0).IsName("shield"))
-        {
-
-            
-            
-            Destroy(this.gameObject);
-        }
-
-       
-
-
-    
-
-
-
-
-
-
-    }
-
     
 }

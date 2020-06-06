@@ -178,7 +178,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 5
 --- !u!114 &5656870
 MonoBehaviour:
@@ -197,10 +197,7 @@ MonoBehaviour:
   vida: 100
   canFlip: 1
   canProjectile: 0
-  canBoundarie: 0
   projectile: {fileID: 0}
-  boundarie1: 0
-  boundarie2: 0
   isEN3: 0
 --- !u!95 &5656871
 Animator:
@@ -425,10 +422,7 @@ MonoBehaviour:
   vida: 0
   canFlip: 0
   canProjectile: 1
-  canBoundarie: 0
   projectile: {fileID: 1677995394}
-  boundarie1: 0
-  boundarie2: 0
   isEN3: 0
 --- !u!61 &47128766
 BoxCollider2D:
@@ -2853,6 +2847,34 @@ PrefabInstance:
       propertyPath: boundarie2
       value: 22.96
       objectReference: {fileID: 0}
+    - target: {fileID: 9436760781337466, guid: e356b63f81afa7544979be66a4e5c6d1, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9436760781337409, guid: e356b63f81afa7544979be66a4e5c6d1, type: 3}
+      propertyPath: m_EdgeRadius
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9436760781337409, guid: e356b63f81afa7544979be66a4e5c6d1, type: 3}
+      propertyPath: m_AutoTiling
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9436760781337409, guid: e356b63f81afa7544979be66a4e5c6d1, type: 3}
+      propertyPath: m_UsedByComposite
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9436760781337409, guid: e356b63f81afa7544979be66a4e5c6d1, type: 3}
+      propertyPath: m_UsedByEffector
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9436760781337409, guid: e356b63f81afa7544979be66a4e5c6d1, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9436760781337409, guid: e356b63f81afa7544979be66a4e5c6d1, type: 3}
+      propertyPath: m_Size.x
+      value: 2.82
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e356b63f81afa7544979be66a4e5c6d1, type: 3}
 --- !u!1001 &673311336172615177
@@ -3084,6 +3106,11 @@ PrefabInstance:
         type: 3}
       propertyPath: boundarie4
       value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3941451778360389544, guid: 97548eaa3247496448e662dd4c6fafde,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97548eaa3247496448e662dd4c6fafde, type: 3}

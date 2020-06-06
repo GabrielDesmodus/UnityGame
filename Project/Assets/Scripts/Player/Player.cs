@@ -30,7 +30,6 @@ public class Player : MonoBehaviour
     private int dL; //Damage inflicted
     private Transform endMarker;
     private Transform lastMarker;
-    public float wait;
     public float iFrame; //Iframe time
     public float force;
     private float throwback;
@@ -46,39 +45,29 @@ public class Player : MonoBehaviour
         tP = 0;
         sword_0 = GameObject.Find("sword_0");
         cc = GameObject.FindGameObjectWithTag("Chao");
-        wait = 3;
+        iFrame = 2;
     }
 
     void Update()
     {
         iFrame += Time.deltaTime;
 
-        if (iFrame > 1.5f)
-        {
-            sprite.color = Color.white;
-        }
-
-        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("atkSword"))
-        {
-            
-        }
-
-        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("atkSword2"))
-        {
-            
-        }
-
-        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("atkSword3"))
-        {
-           
-        }
-
+        //if(iFrame < 5.5f)
+        //{
+        //    sprite.color = Color.red;
+        //    GameObject Enemy = GameObject.Find("EN");
+        //    GameObject Enemy2 = GameObject.Find("EN2");
+        //    Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), Enemy.GetComponent<BoxCollider2D>());
+        //    Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), Enemy2.GetComponent<BoxCollider2D>());
+        //}
+        //else
+        //{
+        //    sprite.color = Color.white;
+        //}
        
         lastClickedTime += Time.deltaTime;
         Attack();
         Movimentacao();
-
-        //wait += Time.deltaTime;
     }
 
     void Attack()   
@@ -136,10 +125,6 @@ public class Player : MonoBehaviour
             dL = 45;
             throwback = -1000;
         }
-        else
-        {
-            animator.SetBool("Attack1", false);
-        }
 
         if (Input.GetButtonDown("Fire1") && click2 == true && lastClickedTime < maxComboDelay)
         {
@@ -184,7 +169,9 @@ public class Player : MonoBehaviour
 
         if (Input.GetAxisRaw("Horizontal") < 0 && iFrame> 0.25f)
         {
-            transform.Translate(Vector2.right * velocidade * Time.deltaTime);
+            var rigidbody2D = GetComponent<Rigidbody2D>();
+            rigidbody2D.AddForce(transform.right * velocidade *100);
+            // transform.Translate(Vector2.right * velocidade * Time.deltaTime);
             transform.eulerAngles = new Vector2(0, 180);
         }
 
