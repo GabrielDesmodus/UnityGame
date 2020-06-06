@@ -8,13 +8,17 @@ public class des : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        prdes = GameObject.Find("projectileDes(Clone)");
+        //prdes = GameObject.Find("projectileDes(Clone)");
     }
 
     // Update is called once per frame
     void Update()
     {
-        Destroy(prdes.gameObject, 0.40f);
+        if(gameObject.name== "projectileDes(Clone)")
+        {
+            Destroy(prdes.gameObject, 0.40f);
+        }
+       
     }
 
     

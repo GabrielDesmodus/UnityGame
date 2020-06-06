@@ -28,6 +28,10 @@ public class HB : MonoBehaviour {
         GameObject Player = GameObject.Find("Player");
         Player playerScript = Player.GetComponent<Player>();
         life = playerScript.vida;
-        transform.localScale = new Vector2((life*hb)/400,0.5f);
+        if (life != 0)
+        {
+            transform.localScale = new Vector2((life * hb) / 400, 0.5f);
+        }
+        
     }
 }
