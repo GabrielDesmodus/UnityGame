@@ -161,25 +161,57 @@ public class Player : MonoBehaviour
 
     void Movimentacao()
     {
-        if (Input.GetAxisRaw("Horizontal") > 0 && iFrame >0.25f)
+        var rigidbody2D = GetComponent<Rigidbody2D>();
+        
+
+        //if (estaNoChao)
+        //{
+        //    rigidbody2D.velocity = Vector3.ClampMagnitude(rigidbody2D.velocity, 10);
+        //}
+        //else
+        //{
+        //    rigidbody2D.velocity = Vector3.ClampMagnitude(rigidbody2D.velocity, 100);
+        //}
+
+        if (Input.GetAxisRaw("Horizontal") > 0 && iFrame > 0.25f)
         {
-            transform.Translate(Vector2.right * velocidade * Time.deltaTime);
             transform.eulerAngles = new Vector2(0, 0);
-        }
+            if (estaNoChao)
+            {
+                rigidbody2D.velocity = 10 * Vector2.right;
+            }
+            else
+            {
+                rigidbody2D.velocity = new Vector2(10,rigidbody2D.velocity);
+                
+                
+                
+            }
+            //rigidbody2D.AddForce(transform.right * 50 * 7);
+            //transform.Translate(Vector2.right * velocidade * Time.deltaTime);
+            //transform.eulerAngles = new Vector2(0, 0);
 
-        if (Input.GetAxisRaw("Horizontal") < 0 && iFrame> 0.25f)
+        }
+        if (Input.GetAxisRaw("Horizontal") < 0 && iFrame > 0.25f)
         {
-            var rigidbody2D = GetComponent<Rigidbody2D>();
-            rigidbody2D.AddForce(transform.right * velocidade *100);
-            // transform.Translate(Vector2.right * velocidade * Time.deltaTime);
             transform.eulerAngles = new Vector2(0, 180);
+            rigidbody2D.velocity = 10 * Vector2.left;
+            // transform.Translate(Vector2.right * velocidade * Time.deltaTime);
+            //GetComponent().MovePosition(transform.position + direction movementSpeed Time.deltaTime);
+            
         }
 
+
+       
         if (Input.GetButtonDown("Jump") && estaNoChao && iFrame >1)
-        {
-            var rigidbody2D = GetComponent<Rigidbody2D>();
-            rigidbody2D.AddForce(transform.up * forcaPulo);
+        {    
+                // rigidbody2D.AddForce(transform.up * forcaPulo);
+                rigidbody2D.velocity += 60 * Vector2.up;
+            //rigidbody2D.velocity = Vector3.ClampMagnitude(rigidbody2D.velocity, 1000);
         }
+
+
+        //rigidbody2D.velocity = Vector3.ClampMagnitude(rigidbody2D.velocity,500);
 
         estaNoChao = Physics2D.Linecast(transform.position, chaoVerificador.position, 1 << LayerMask.NameToLayer("Piso"));
         animator.SetFloat("movimento", Mathf.Abs(Input.GetAxisRaw("Horizontal")));

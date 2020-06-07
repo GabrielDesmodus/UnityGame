@@ -274,7 +274,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5656867}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.4, y: 5.6, z: -22.8576}
+  m_LocalPosition: {x: 47.6, y: 8.6, z: -22.8576}
   m_LocalScale: {x: 1, y: 1, z: 0.9738921}
   m_Children:
   - {fileID: 1053635520}
@@ -2785,11 +2785,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9436760781337470, guid: e356b63f81afa7544979be66a4e5c6d1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.8
+      value: 38.2
       objectReference: {fileID: 0}
     - target: {fileID: 9436760781337470, guid: e356b63f81afa7544979be66a4e5c6d1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.5
+      value: 9.3
       objectReference: {fileID: 0}
     - target: {fileID: 9436760781337470, guid: e356b63f81afa7544979be66a4e5c6d1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3107,10 +3107,30 @@ PrefabInstance:
       propertyPath: boundarie4
       value: -100
       objectReference: {fileID: 0}
+    - target: {fileID: 3941451778360389545, guid: 97548eaa3247496448e662dd4c6fafde,
+        type: 3}
+      propertyPath: maxComboDelay
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3941451778360389544, guid: 97548eaa3247496448e662dd4c6fafde,
         type: 3}
       propertyPath: m_CollisionDetection
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3941451778360389544, guid: 97548eaa3247496448e662dd4c6fafde,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3941451778360389544, guid: 97548eaa3247496448e662dd4c6fafde,
+        type: 3}
+      propertyPath: m_Mass
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3941451778360389544, guid: 97548eaa3247496448e662dd4c6fafde,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97548eaa3247496448e662dd4c6fafde, type: 3}
