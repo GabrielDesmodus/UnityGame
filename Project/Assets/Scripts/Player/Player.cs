@@ -37,6 +37,7 @@ public class Player : MonoBehaviour
     public float boundarie1, boundarie2, boundarie3, boundarie4;
     public float heightthing, groundthing;
     public LayerMask layer;
+    private float wait;
 
     void Start()
     {
@@ -71,18 +72,19 @@ public class Player : MonoBehaviour
         Attack();
         Movimentacao();
         GroundCheck();
+        wait += Time.deltaTime;
     }
 
     void GroundCheck()
     {
-        estaNoChao = Physics2D.OverlapCircle(chaoVerificador.position, 4, layer);
+        estaNoChao = Physics2D.OverlapCircle(chaoVerificador.position, 3, layer);
 
 
     }
 
-    void Attack()   
+    void Attack()
     {
-        //Se o tempo desde o ultimo ataque for maior que o delay máximo para combo, o combo reseta
+
         if (lastClickedTime > maxComboDelay)
         {
             noOfClicks = 0;
@@ -97,13 +99,14 @@ public class Player : MonoBehaviour
         {
             click1 = true;
             clickx1 = true;
+            /*click2 = false;**/
             click3 = false;
         }
-    
+
         else
         {
             click1 = false;
-            clickx1 = false; 
+            clickx1 = false;
         }
         if (noOfClicks == 1)
         {
@@ -120,6 +123,7 @@ public class Player : MonoBehaviour
         {
             click3 = true;
             click1 = false;
+            /*click2 = false;*/
         }
         else
         {
@@ -132,8 +136,10 @@ public class Player : MonoBehaviour
             noOfClicks = 1;
             noOfClickspe = 1;
             animator.SetBool("Attack1", true);
-            dL = 45;
-            throwback = -1000;
+        }
+        else
+        {
+            animator.SetBool("Attack1", false);
         }
 
         if (Input.GetButtonDown("Fire1") && click2 == true && lastClickedTime < maxComboDelay)
@@ -142,17 +148,18 @@ public class Player : MonoBehaviour
             noOfClicks = 2;
             noOfClickspe = 2;
             animator.SetBool("Attack2", true);
-            dL = 100;
-            throwback = -1000;
+        }
+        else
+        {
+            /*animator.SetBool("Attack2", false);*/
+
         }
 
-        if (Input.GetButtonDown("Fire1") && click3 == true && lastClickedTime <= maxComboDelay && Time.time >tP)
+        if (Input.GetButtonDown("Fire1") && click3 == true && lastClickedTime <= maxComboDelay && Time.time > tP)
         {
             animator.SetBool("Attack3", true);
             noOfClicks = 0;
             tP = Time.time + 1;
-            dL = 200;
-            throwback = -3000;
         }
 
         if (Input.GetButtonDown("Fire2") && Time.time > tP)
@@ -160,14 +167,45 @@ public class Player : MonoBehaviour
             animator.SetBool("AttackX1", true);
             tP = Time.time + 1.35f;
         }
-
+        if (Input.GetButton("Fire3"))
+        {
+            animator.SetBool("shield", true);
+            /*sword_0.GetComponent<CapsuleCollider2D>().isTrigger = false;*/
+            velocidade = 0;
+        }
         else
         {
             animator.SetBool("shield", false);
             Physics2D.IgnoreCollision(sword_0.GetComponent<CapsuleCollider2D>(), cc1.GetComponent<BoxCollider2D>());
             velocidade = 14;
+            /*sword_0.GetComponent<CapsuleCollider2D>().isTrigger = true;*/
         }
-    } 
+        /*else
+         {
+             animator.SetBool("AttackX1", false);
+         }
+
+         if (Input.GetButtonDown("Fire2"))
+         {
+
+             animator.SetBool("ComboXY", true);
+
+         }
+         else
+         {
+             animator.SetBool("ComboXY", false);
+         }
+
+         if (Input.GetButtonDown("Fire2") && noOfClickspe == 2)
+         {
+
+             animator.SetBool("ComboXXY", true); 
+         }
+         else
+         {
+             animator.SetBool("ComboXXY", false);
+         }*/
+    }
 
     void Movimentacao()
     {
@@ -181,41 +219,57 @@ public class Player : MonoBehaviour
         {
             rigidbody2D.gravityScale = 5;
         }
-        if (Input.GetAxisRaw("Horizontal") > 0 && iFrame > 0.25f && estaNoChao)
+
+        if (Input.GetAxisRaw("Horizontal") > 0 && iFrame > 0.25f && wait > 0.5f)
         {
-            //if (!estaNoChao)
-            //{
+            if (estaNoChao)
+            {
+                transform.eulerAngles = new Vector2(0, 0);
 
-            //    rigidbody2D.AddForce(transform.right * 75);
-            //}
-            //else
-            //{
-            //    rigidbody2D.AddForce(transform.right * 100);
-            //}
+                rigidbody2D.MovePosition(transform.position + transform.right * 16 * Time.fixedDeltaTime);
 
+            }
+        }
+        if (wait > 0.75f && Input.GetAxisRaw("Horizontal") > 0 && iFrame > 0.25f && Input.GetButtonDown("Jump"))
+        {
+            wait = 0;
             transform.eulerAngles = new Vector2(0, 0);
+            rigidbody2D.velocity = rigidbody2D.velocity + Vector2.up * 60;
+            rigidbody2D.velocity = rigidbody2D.velocity + Vector2.right * 20;
+
+
+        }
+
+        if (Input.GetAxisRaw("Horizontal") < 0 && iFrame > 0.25f && wait>0.5f)
+        {
+            if (estaNoChao)
+            {
+                transform.eulerAngles = new Vector2(0, 180);
+
+                rigidbody2D.MovePosition(transform.position + transform.right * 16 * Time.fixedDeltaTime);
+
+            }
+        }
+        if (wait >0.75f && Input.GetAxisRaw("Horizontal") < 0 && iFrame > 0.25f && Input.GetButtonDown("Jump"))
+        {
+            wait =0;
+            transform.eulerAngles = new Vector2(0, 180);
+            rigidbody2D.velocity = rigidbody2D.velocity + Vector2.up * 60;
+            rigidbody2D.velocity = rigidbody2D.velocity + Vector2.left * 20;
             
-            rigidbody2D.MovePosition(transform.position + transform.right *8* Time.fixedDeltaTime);
-        }
 
-        if (Input.GetAxisRaw("Horizontal") < 0 && iFrame > 0.25f && estaNoChao)
+        }
+        else if (Input.GetAxisRaw("Horizontal") == 0 && Input.GetButtonDown("Jump") && estaNoChao && iFrame > 1)
         {
-            transform.eulerAngles = new Vector2(0,180);
-
-            rigidbody2D.MovePosition(transform.position + transform.right * 8 * Time.fixedDeltaTime);
+            Debug.Log("AAAA");
+            rigidbody2D.velocity = rigidbody2D.velocity + Vector2.up * 60;
+            //rigidbody2D.AddForce(transform.up * 7000);
         }
+        
 
-        if (Input.GetButtonDown("Jump") && estaNoChao && iFrame > 1)
-        {
-            
-            rigidbody2D.AddForce(transform.up * 7000);
-        }
+       
 
-        if (Input.GetButtonDown("Jump") && estaNoChao && iFrame > 1 && Input.GetAxisRaw("Horizontal") != 0)
-        {
-
-            rigidbody2D.AddForce(transform.up *80000);
-        }
+        
 
         //estaNoChao = Physics2D.Linecast(transform.position, chaoVerificador.position, 1 << LayerMask.NameToLayer("Piso"));
         animator.SetFloat("movimento", Mathf.Abs(Input.GetAxisRaw("Horizontal")));
