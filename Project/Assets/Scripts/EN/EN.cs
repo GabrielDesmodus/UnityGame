@@ -93,8 +93,6 @@ public class EN : MonoBehaviour {
                 waitForFlip = 0;
             }
         }
-
-       
     }
 
     private void Boundarie()

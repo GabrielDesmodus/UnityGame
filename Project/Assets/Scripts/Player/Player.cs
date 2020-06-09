@@ -35,9 +35,10 @@ public class Player : MonoBehaviour
     private float throwback;
     private SpriteRenderer sprite;
     public float boundarie1, boundarie2, boundarie3, boundarie4;
-    public float heightthing, groundthing;
     public LayerMask layer;
-    private float wait;
+    private float waitToJump;
+    public GameObject Enemy;
+    public GameObject Enemy2;
 
     void Start()
     {
@@ -49,32 +50,50 @@ public class Player : MonoBehaviour
         sword_0 = GameObject.Find("sword_0");
         cc = GameObject.FindGameObjectWithTag("Chao");
         iFrame = 2;
+        Enemy = GameObject.Find("EN");
+        Enemy2 = GameObject.Find("EN2");
+        GameObject[] enemies;
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
     }
 
     void Update()
     {
         iFrame += Time.deltaTime;
 
-        //if(iFrame < 5.5f)
-        //{
-        //    sprite.color = Color.red;
-        //    GameObject Enemy = GameObject.Find("EN");
-        //    GameObject Enemy2 = GameObject.Find("EN2");
-        //    Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), Enemy.GetComponent<BoxCollider2D>());
-        //    Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), Enemy2.GetComponent<BoxCollider2D>());
-        //}
-        //else
-        //{
-        //    sprite.color = Color.white;
-        //}
-       
+        if (iFrame < 5.5f)
+        {
+            sprite.color = Color.red;
+            
+         
+        }
+        else
+        {
+            sprite.color = Color.white;
+    
+        }
+
         lastClickedTime += Time.deltaTime;
         Attack();
         Movimentacao();
         GroundCheck();
-        wait += Time.deltaTime;
+        waitToJump += Time.deltaTime;
     }
+    private void OnCollisionStay2D(Collision2D colisor)
+    {
+        if (iFrame < 5.5f)
+        {
 
+            if (colisor.gameObject.layer == LayerMask.NameToLayer("enemy"))
+            {
+                Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), colisor.gameObject.GetComponent<BoxCollider2D>());
+                Debug.Log("AAAA");
+            }
+        }
+        else
+        {
+            Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), colisor.gameObject.GetComponent<BoxCollider2D>(), false);
+        }
+    }
     void GroundCheck()
     {
         estaNoChao = Physics2D.OverlapCircle(chaoVerificador.position, 3, layer);
@@ -220,7 +239,7 @@ public class Player : MonoBehaviour
             rigidbody2D.gravityScale = 5;
         }
 
-        if (Input.GetAxisRaw("Horizontal") > 0 && iFrame > 0.25f && wait > 0.5f)
+        if (Input.GetAxisRaw("Horizontal") > 0 && iFrame > 0.25f && waitToJump > 0.5f)
         {
             if (estaNoChao)
             {
@@ -230,9 +249,9 @@ public class Player : MonoBehaviour
 
             }
         }
-        if (wait > 0.75f && Input.GetAxisRaw("Horizontal") > 0 && iFrame > 0.25f && Input.GetButtonDown("Jump"))
+        if (waitToJump > 0.75f && Input.GetAxisRaw("Horizontal") > 0 && iFrame > 0.25f && Input.GetButtonDown("Jump"))
         {
-            wait = 0;
+            waitToJump = 0;
             transform.eulerAngles = new Vector2(0, 0);
             rigidbody2D.velocity = rigidbody2D.velocity + Vector2.up * 60;
             rigidbody2D.velocity = rigidbody2D.velocity + Vector2.right * 20;
@@ -240,7 +259,7 @@ public class Player : MonoBehaviour
 
         }
 
-        if (Input.GetAxisRaw("Horizontal") < 0 && iFrame > 0.25f && wait>0.5f)
+        if (Input.GetAxisRaw("Horizontal") < 0 && iFrame > 0.25f && waitToJump>0.5f)
         {
             if (estaNoChao)
             {
@@ -250,9 +269,9 @@ public class Player : MonoBehaviour
 
             }
         }
-        if (wait >0.75f && Input.GetAxisRaw("Horizontal") < 0 && iFrame > 0.25f && Input.GetButtonDown("Jump"))
+        if (waitToJump >0.75f && Input.GetAxisRaw("Horizontal") < 0 && iFrame > 0.25f && Input.GetButtonDown("Jump"))
         {
-            wait =0;
+            waitToJump =0;
             transform.eulerAngles = new Vector2(0, 180);
             rigidbody2D.velocity = rigidbody2D.velocity + Vector2.up * 60;
             rigidbody2D.velocity = rigidbody2D.velocity + Vector2.left * 20;
@@ -261,7 +280,7 @@ public class Player : MonoBehaviour
         }
         else if (Input.GetAxisRaw("Horizontal") == 0 && Input.GetButtonDown("Jump") && estaNoChao && iFrame > 1)
         {
-            Debug.Log("AAAA");
+            
             rigidbody2D.velocity = rigidbody2D.velocity + Vector2.up * 60;
             //rigidbody2D.AddForce(transform.up * 7000);
         }
@@ -287,7 +306,6 @@ public class Player : MonoBehaviour
         {
             
             iFrame = 0;
-            //wait = 0;
             sprite.color = new Color(0.5283019f, 0f, 0f, 1f);
             vida -= (damage);
             if (vida < 0)

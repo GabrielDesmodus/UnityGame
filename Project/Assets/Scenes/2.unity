@@ -126,13 +126,13 @@ GameObject:
   - component: {fileID: 5656870}
   - component: {fileID: 5656869}
   - component: {fileID: 5656868}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EN
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &5656868
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -171,7 +171,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 15
   m_LinearDrag: 0
   m_AngularDrag: 0.5
   m_GravityScale: 1
@@ -274,7 +274,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5656867}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 47.6, y: 8.6, z: -22.8576}
+  m_LocalPosition: {x: 4, y: 4, z: -22.8576}
   m_LocalScale: {x: 1, y: 1, z: 0.9738921}
   m_Children:
   - {fileID: 1053635520}
@@ -385,7 +385,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &47128764
 Animator:
   serializedVersion: 3
@@ -1373,6 +1373,11 @@ PrefabInstance:
       propertyPath: takeDamage
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 20602451942662612, guid: b85ec510ba680c74d8144f09314321a1,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 3383
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b85ec510ba680c74d8144f09314321a1, type: 3}
 --- !u!1 &1053635519
@@ -1386,7 +1391,7 @@ GameObject:
   - component: {fileID: 1053635520}
   - component: {fileID: 1053635522}
   - component: {fileID: 1053635521}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: damage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2785,15 +2790,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9436760781337464, guid: e356b63f81afa7544979be66a4e5c6d1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9436760781337464, guid: e356b63f81afa7544979be66a4e5c6d1, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 9436760781337470, guid: e356b63f81afa7544979be66a4e5c6d1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 38.2
+      value: -19.1
       objectReference: {fileID: 0}
     - target: {fileID: 9436760781337470, guid: e356b63f81afa7544979be66a4e5c6d1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.3
+      value: 5.3
       objectReference: {fileID: 0}
     - target: {fileID: 9436760781337470, guid: e356b63f81afa7544979be66a4e5c6d1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2855,6 +2864,10 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9436760781337466, guid: e356b63f81afa7544979be66a4e5c6d1, type: 3}
+      propertyPath: m_Constraints
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 9436760781337409, guid: e356b63f81afa7544979be66a4e5c6d1, type: 3}
       propertyPath: m_EdgeRadius
       value: 0
@@ -2879,6 +2892,10 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 2.82
       objectReference: {fileID: 0}
+    - target: {fileID: 9436762128505588, guid: e356b63f81afa7544979be66a4e5c6d1, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e356b63f81afa7544979be66a4e5c6d1, type: 3}
 --- !u!1001 &673311336172615177
@@ -2896,7 +2913,7 @@ PrefabInstance:
     - target: {fileID: 673311336547180985, guid: f0ebf00edfbbc3c48bd3b85fccb16f8d,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 673311336547180986, guid: f0ebf00edfbbc3c48bd3b85fccb16f8d,
         type: 3}
