@@ -1,2 +1,2 @@
 # UnityGame
-Unity project for learning porposes started in 2018
+Unity project for learning porposes started in early 2018. 
