@@ -64,10 +64,14 @@ public class Player : MonoBehaviour
         {
             sprite.color = Color.red;
             
-         
+            Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), Enemy.GetComponent<BoxCollider2D>());
+            Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), Enemy2.GetComponent<BoxCollider2D>());
+
         }
         else
         {
+            Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), Enemy.GetComponent<BoxCollider2D>(),false);
+            Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), Enemy2.GetComponent<BoxCollider2D>(),false);
             sprite.color = Color.white;
     
         }
@@ -78,7 +82,25 @@ public class Player : MonoBehaviour
         GroundCheck();
         waitToJump += Time.deltaTime;
     }
-    private void OnCollisionStay2D(Collision2D colisor)
+    private void OnCollisionEnter2D(Collision2D colisor)
+    {
+        Debug.Log(colisor.gameObject.name);
+        //if (iFrame < 5.5f)
+        //{
+
+        //    if (colisor.gameObject.layer == LayerMask.NameToLayer("enemy"))
+        //    {
+        //        Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), colisor.gameObject.GetComponent<BoxCollider2D>());
+        //        Debug.Log("AAAA");
+        //    }
+        //}
+        //else
+        //{
+        //    Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), colisor.gameObject.GetComponent<BoxCollider2D>(), false);
+        //}
+    }
+
+    private void OnCollisionExit2D(Collision2D colisor)
     {
         if (iFrame < 5.5f)
         {
@@ -88,10 +110,10 @@ public class Player : MonoBehaviour
                 Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), colisor.gameObject.GetComponent<BoxCollider2D>());
                 Debug.Log("AAAA");
             }
-        }
-        else
-        {
-            Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), colisor.gameObject.GetComponent<BoxCollider2D>(), false);
+            else
+            {
+                Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), colisor.gameObject.GetComponent<BoxCollider2D>(), false);
+            }
         }
     }
     void GroundCheck()
