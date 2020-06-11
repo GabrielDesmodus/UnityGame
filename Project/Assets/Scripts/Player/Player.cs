@@ -60,7 +60,7 @@ public class Player : MonoBehaviour
     {
         iFrame += Time.deltaTime;
 
-        if (iFrame < 5.5f)
+        if (iFrame < 2)
         {
             sprite.color = Color.red;
 
@@ -214,80 +214,122 @@ public class Player : MonoBehaviour
          }*/
     }
 
+    //void Movimentacao()
+    //{
+    //    var rigidbody2D = GetComponent<Rigidbody2D>();
+    //    rigidbody2D.velocity = Vector2.ClampMagnitude(rigidbody2D.velocity, 80);
+    //    if (!estaNoChao)
+    //    {
+    //        rigidbody2D.gravityScale = 40;
+
+    //    }
+    //    else
+    //    {
+    //        rigidbody2D.gravityScale = 5;
+
+    //    }
+
+    //    if (Input.GetAxisRaw("Horizontal") > 0 && iFrame > 0.25f && waitToJump > 0.25f && estaNoChao)
+    //    {
+    //        if (estaNoChao)
+    //        {
+    //            transform.eulerAngles = new Vector2(0, 0);
+
+    //            rigidbody2D.MovePosition(transform.position + transform.right * 16 * Time.fixedDeltaTime);
+
+    //        }
+    //    }
+    //    if (waitToJump > 0.25f && Input.GetAxisRaw("Horizontal") > 0 && iFrame > 0.25f && Input.GetButtonDown("Jump") && estaNoChao)
+    //    {
+    //        waitToJump = 0;
+    //        transform.eulerAngles = new Vector2(0, 0);
+    //        rigidbody2D.velocity = Vector2.ClampMagnitude(rigidbody2D.velocity, 120);
+    //        rigidbody2D.velocity = rigidbody2D.velocity + Vector2.up * 80;
+    //        rigidbody2D.velocity = rigidbody2D.velocity + Vector2.right * 30;
+    //        rigidbody2D.velocity = Vector2.ClampMagnitude(rigidbody2D.velocity, 80);
+
+
+    //    }
+
+    //    if (Input.GetAxisRaw("Horizontal") < 0 && iFrame > 0.25f && waitToJump>0.25f)
+    //    {
+    //        if (estaNoChao)
+    //        {
+    //            transform.eulerAngles = new Vector2(0, 180);
+
+    //            rigidbody2D.MovePosition(transform.position + transform.right * 16 * Time.fixedDeltaTime);
+
+    //        }
+    //    }
+    //    if (waitToJump >0.25f && Input.GetAxisRaw("Horizontal") < 0 && iFrame > 0.25f && Input.GetButtonDown("Jump") && estaNoChao)
+    //    {
+    //        waitToJump =0;
+    //        transform.eulerAngles = new Vector2(0, 180);
+    //        rigidbody2D.velocity = rigidbody2D.velocity + Vector2.up * 80;
+    //        rigidbody2D.velocity = rigidbody2D.velocity + Vector2.left * 30;
+
+
+    //    }
+    //    else if (Input.GetAxisRaw("Horizontal") == 0 && Input.GetButtonDown("Jump") && estaNoChao && iFrame > 1)
+    //    {
+
+    //        rigidbody2D.velocity = rigidbody2D.velocity + Vector2.up * 60;
+    //        //rigidbody2D.AddForce(transform.up * 7000);
+    //    }
+
+
+
+
+
+
+    //    //estaNoChao = Physics2D.Linecast(transform.position, chaoVerificador.position, 1 << LayerMask.NameToLayer("Piso"));
+    //    animator.SetFloat("movimento", Mathf.Abs(Input.GetAxisRaw("Horizontal")));
+    //    //estaNoChao = Physics2D.Linecast(transform.position, chaoVerificador.position, 1 << LayerMask.NameToLayer("Piso"));
+    //    animator.SetBool("chao", estaNoChao);
+    //}
+
+
+
+
+    //The enemy calls this function to deal damage to the player
     void Movimentacao()
     {
         var rigidbody2D = GetComponent<Rigidbody2D>();
 
         if (!estaNoChao)
         {
-            rigidbody2D.gravityScale = 40;
+            rigidbody2D.gravityScale +=1;
+            velocidade = 24;
+
         }
         else
         {
-            rigidbody2D.gravityScale = 5;
+            rigidbody2D.gravityScale = 1;
+            velocidade = 14;
         }
-
-        if (Input.GetAxisRaw("Horizontal") > 0 && iFrame > 0.25f && waitToJump > 0.5f)
+        if (Input.GetAxisRaw("Horizontal") > 0 && iFrame > 0.25f)
         {
-            if (estaNoChao)
-            {
-                transform.eulerAngles = new Vector2(0, 0);
-
-                rigidbody2D.MovePosition(transform.position + transform.right * 16 * Time.fixedDeltaTime);
-
-            }
-        }
-        if (waitToJump > 0.75f && Input.GetAxisRaw("Horizontal") > 0 && iFrame > 0.25f && Input.GetButtonDown("Jump"))
-        {
-            waitToJump = 0;
+            transform.Translate(Vector2.right * velocidade * Time.deltaTime);
             transform.eulerAngles = new Vector2(0, 0);
-            rigidbody2D.velocity = rigidbody2D.velocity + Vector2.up * 60;
-            rigidbody2D.velocity = rigidbody2D.velocity + Vector2.right * 20;
-
-
         }
 
-        if (Input.GetAxisRaw("Horizontal") < 0 && iFrame > 0.25f && waitToJump>0.5f)
+        if (Input.GetAxisRaw("Horizontal") < 0 && iFrame > 0.25f)
         {
-            if (estaNoChao)
-            {
-                transform.eulerAngles = new Vector2(0, 180);
-
-                rigidbody2D.MovePosition(transform.position + transform.right * 16 * Time.fixedDeltaTime);
-
-            }
-        }
-        if (waitToJump >0.75f && Input.GetAxisRaw("Horizontal") < 0 && iFrame > 0.25f && Input.GetButtonDown("Jump"))
-        {
-            waitToJump =0;
+            transform.Translate(Vector2.right * velocidade * Time.deltaTime);
             transform.eulerAngles = new Vector2(0, 180);
-            rigidbody2D.velocity = rigidbody2D.velocity + Vector2.up * 60;
-            rigidbody2D.velocity = rigidbody2D.velocity + Vector2.left * 20;
-            
-
         }
-        else if (Input.GetAxisRaw("Horizontal") == 0 && Input.GetButtonDown("Jump") && estaNoChao && iFrame > 1)
+
+        if (Input.GetButtonDown("Jump") && estaNoChao && iFrame > 1)
         {
             
-            rigidbody2D.velocity = rigidbody2D.velocity + Vector2.up * 60;
-            //rigidbody2D.AddForce(transform.up * 7000);
+            rigidbody2D.AddForce(transform.up * forcaPulo);
         }
-        
 
-       
-
-        
-
-        //estaNoChao = Physics2D.Linecast(transform.position, chaoVerificador.position, 1 << LayerMask.NameToLayer("Piso"));
+        estaNoChao = Physics2D.Linecast(transform.position, chaoVerificador.position, 1 << LayerMask.NameToLayer("Piso"));
         animator.SetFloat("movimento", Mathf.Abs(Input.GetAxisRaw("Horizontal")));
-        //estaNoChao = Physics2D.Linecast(transform.position, chaoVerificador.position, 1 << LayerMask.NameToLayer("Piso"));
+        estaNoChao = Physics2D.Linecast(transform.position, chaoVerificador.position, 1 << LayerMask.NameToLayer("Piso"));
         animator.SetBool("chao", estaNoChao);
     }
-
-
-
-
-    //The enemy calls this function to deal damage to the player
     public void TakeDamage(int damage)
     {
         if (iFrame > 1.5f)
