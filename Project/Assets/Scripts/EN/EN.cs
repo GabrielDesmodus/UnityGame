@@ -23,6 +23,7 @@ public class EN : MonoBehaviour {
     public GameObject projectile;
     public bool isEN3;
     private float waitForFlip;
+    public bool canWalk/
 
 
     void Start()
@@ -39,9 +40,12 @@ public class EN : MonoBehaviour {
 
     void Update()
     {
-        
+
+        if (canWalk)
+        {
             Boundarie();
-        
+        }
+
 
         if (canProjectile)
         {
