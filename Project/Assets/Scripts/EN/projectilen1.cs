@@ -29,7 +29,7 @@ public class projectilen1 : MonoBehaviour {
 	void Update () {
         GameObject Enemy = GameObject.Find("EN");
         GameObject Enemy2 = GameObject.Find("EN2");
-        transform.Translate(Vector2.right * 100 * Time.deltaTime);
+        transform.Translate(Vector2.right * 50 * Time.deltaTime);
         Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), Enemy.GetComponent<BoxCollider2D>());
         Physics2D.IgnoreCollision(this.GetComponent<BoxCollider2D>(), Enemy2.GetComponent<BoxCollider2D>());
 
