@@ -109,6 +109,7 @@ public class Player : MonoBehaviour
         }
         if (Input.GetButtonDown("Fire1") && lastClickedTime < maxComboDelay && lastClickedTime > 0.4f && noOfClicks==1)
         {
+            animator.SetBool("Attack1", false);
             animator.SetBool("Attack2", true);
             lastClickedTime = 0;
             noOfClicks = 2;
