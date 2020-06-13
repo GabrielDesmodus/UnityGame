@@ -113,7 +113,7 @@ public class Player : MonoBehaviour
             lastClickedTime = 0;
             noOfClicks = 2;
         }
-        if (lastClickedTime < maxComboDelay && lastClickedTime > 0.5f && noOfClicks == 2)
+        if (lastClickedTime < maxComboDelay && lastClickedTime > 0.2f && noOfClicks == 2)
         {
             animator.SetBool("Attack1", false);
             animator.SetBool("Attack2", false);
