@@ -17,7 +17,7 @@ public class projectilen1 : MonoBehaviour {
         // GameObject Player = GameObject.Find("Player");
         // Player playerScript = Player.GetComponent<Player>();
         // dmg = playerScript.vidaAtual;
-        transform.position = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
+        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
 
 
 

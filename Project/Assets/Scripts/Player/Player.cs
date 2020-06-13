@@ -39,6 +39,7 @@ public class Player : MonoBehaviour
     private float waitToJump;
     public GameObject Enemy;
     public GameObject Enemy2;
+    private bool endOfCombo;
 
     void Start()
     {
@@ -85,108 +86,149 @@ public class Player : MonoBehaviour
     void GroundCheck()
     {
         estaNoChao = Physics2D.OverlapCircle(chaoVerificador.position, 3, layer);
-
-
     }
 
     void Attack()
     {
 
-        if (lastClickedTime > maxComboDelay)
+        if(lastClickedTime > maxComboDelay)
         {
             noOfClicks = 0;
             animator.SetBool("Attack1", false);
             animator.SetBool("Attack2", false);
-            animator.SetBool("AttackX1", false);
             animator.SetBool("Attack3", false);
             lastClickedTime = 0;
         }
-
-        if (noOfClicks == 0)
+        
+        if(Input.GetButtonDown("Fire1") && lastClickedTime < maxComboDelay && lastClickedTime > 0.5f && noOfClicks==0)
         {
-            click1 = true;
-            clickx1 = true;
-            /*click2 = false;**/
-            click3 = false;
-        }
-
-        else
-        {
-            click1 = false;
-            clickx1 = false;
-        }
-        if (noOfClicks == 1)
-        {
-            click2 = true;
-            click1 = false;
-            click3 = false;
-        }
-        else
-        {
-            click2 = false;
-        }
-
-        if (noOfClicks == 2)
-        {
-            click3 = true;
-            click1 = false;
-            /*click2 = false;*/
-        }
-        else
-        {
-            click3 = false;
-        }
-
-        if (Input.GetButtonDown("Fire1") && click1 == true && Time.time > tP)
-        {
+            animator.SetBool("Attack1", true);
             lastClickedTime = 0;
             noOfClicks = 1;
-            noOfClickspe = 1;
-            animator.SetBool("Attack1", true);
+            
         }
-        else
+        if (Input.GetButtonDown("Fire1") && lastClickedTime < maxComboDelay && lastClickedTime > 0.4f && noOfClicks==1)
         {
-            animator.SetBool("Attack1", false);
-        }
-
-        if (Input.GetButtonDown("Fire1") && click2 == true && lastClickedTime < maxComboDelay)
-        {
+            animator.SetBool("Attack2", true);
             lastClickedTime = 0;
             noOfClicks = 2;
-            noOfClickspe = 2;
-            animator.SetBool("Attack2", true);
         }
-        else
+        if (lastClickedTime < maxComboDelay && lastClickedTime > 0.5f && noOfClicks == 2)
         {
-            /*animator.SetBool("Attack2", false);*/
-
-        }
-
-        if (Input.GetButtonDown("Fire1") && click3 == true && lastClickedTime <= maxComboDelay && Time.time > tP)
-        {
-            animator.SetBool("Attack3", true);
+            animator.SetBool("Attack1", false);
+            animator.SetBool("Attack2", false);
+            lastClickedTime = 0;
             noOfClicks = 0;
-            tP = Time.time + 1;
         }
 
-        if (Input.GetButtonDown("Fire2") && Time.time > tP)
-        {
-            animator.SetBool("AttackX1", true);
-            tP = Time.time + 1.35f;
-        }
-        if (Input.GetButton("Fire3"))
-        {
-            animator.SetBool("shield", true);
-            /*sword_0.GetComponent<CapsuleCollider2D>().isTrigger = false;*/
-            velocidade = 0;
-        }
-        else
-        {
-            animator.SetBool("shield", false);
-            Physics2D.IgnoreCollision(sword_0.GetComponent<CapsuleCollider2D>(), cc1.GetComponent<BoxCollider2D>());
-            velocidade = 14;
-            /*sword_0.GetComponent<CapsuleCollider2D>().isTrigger = true;*/
-        }
+
+        //if (lastClickedTime > maxComboDelay)
+        //{
+        //    noOfClicks = 0;
+        //    animator.SetBool("Attack1", false);
+        //    animator.SetBool("Attack2", false);
+        //    animator.SetBool("AttackX1", false);
+        //    animator.SetBool("Attack3", false);
+        //    lastClickedTime = 0;
+        //}
+
+        //if (endOfCombo==true || lastClickedTime >0.5f)
+        //{
+        //    animator.SetBool("Attack3", false);
+
+        //}
+
+        //if (noOfClicks == 0)
+        //{
+        //    click1 = true;
+        //    clickx1 = true;
+        //    /*click2 = false;**/
+        //    click3 = false;
+        //}
+
+        //else
+        //{
+        //    click1 = false;
+        //    clickx1 = false;
+        //}
+        //if (noOfClicks == 1)
+        //{
+        //    click2 = true;
+        //    click1 = false;
+        //    click3 = false;
+        //}
+        //else
+        //{
+        //    click2 = false;
+        //}
+
+        //if (noOfClicks == 2)
+        //{
+        //    click3 = true;
+        //    click1 = false;
+        //    /*click2 = false;*/
+        //}
+        //else
+        //{
+        //    click3 = false;
+        //}
+
+        //if (Input.GetButtonDown("Fire1") && click1 == true /*&& Time.time > tP*/ && lastClickedTime > 0.7 || endOfCombo==true)
+        //{
+        //    lastClickedTime = 0;
+        //    noOfClicks = 1;
+        //    noOfClickspe = 1;
+        //    animator.SetBool("Attack1", true);
+        //    endOfCombo = false;
+        //}
+        //else
+        //{
+        //    animator.SetBool("Attack1", false);
+        //}
+
+        //if (Input.GetButtonDown("Fire1") && click2 == true && lastClickedTime < maxComboDelay && lastClickedTime > 0.5f)
+        //{
+        //    lastClickedTime = 0;
+        //    noOfClicks = 2;
+        //    noOfClickspe = 2;
+        //    animator.SetBool("Attack2", true);
+        //}
+        //else
+        //{
+        //    /*animator.SetBool("Attack2", false);*/
+
+        //}
+
+        //if (Input.GetButtonDown("Fire1") && click3 == true && lastClickedTime <= maxComboDelay /*&& Time.time > tP*/ && lastClickedTime > 0.5f)
+        //{
+        //    Debug.Log("???");
+
+        //    animator.SetBool("Attack3", true);
+
+        //    noOfClicks = 0;
+
+        //    lastClickedTime = 0;
+        //    endOfCombo = true;
+        //}
+
+        //if (Input.GetButtonDown("Fire2") && Time.time > tP)
+        //{
+        //    animator.SetBool("AttackX1", true);
+        //    tP = Time.time + 1.35f;
+        //}
+        //if (Input.GetButton("Fire3"))
+        //{
+        //    animator.SetBool("shield", true);
+        //    /*sword_0.GetComponent<CapsuleCollider2D>().isTrigger = false;*/
+        //    velocidade = 0;
+        //}
+        //else
+        //{
+        //    animator.SetBool("shield", false);
+        //    Physics2D.IgnoreCollision(sword_0.GetComponent<CapsuleCollider2D>(), cc1.GetComponent<BoxCollider2D>());
+        //    velocidade = 14;
+        //    /*sword_0.GetComponent<CapsuleCollider2D>().isTrigger = true;*/
+        //}
         /*else
          {
              animator.SetBool("AttackX1", false);

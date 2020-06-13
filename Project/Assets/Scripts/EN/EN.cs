@@ -23,7 +23,7 @@ public class EN : MonoBehaviour {
     public GameObject projectile;
     public bool isEN3;
     private float waitForFlip;
-    public bool canWalk/
+    public bool canWalk;
 
 
     void Start()
