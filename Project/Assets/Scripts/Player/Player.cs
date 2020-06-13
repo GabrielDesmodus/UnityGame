@@ -109,15 +109,26 @@ public class Player : MonoBehaviour
         }
         if (Input.GetButtonDown("Fire1") && lastClickedTime < maxComboDelay && lastClickedTime > 0.4f && noOfClicks==1)
         {
+            Debug.Log("2");
             animator.SetBool("Attack1", false);
             animator.SetBool("Attack2", true);
             lastClickedTime = 0;
             noOfClicks = 2;
         }
-        if (lastClickedTime < maxComboDelay && lastClickedTime > 0.2f && noOfClicks == 2)
+        if (Input.GetButtonDown("Fire1") && lastClickedTime < maxComboDelay && lastClickedTime > 0.4f && noOfClicks == 2)
         {
+            Debug.Log("2");
             animator.SetBool("Attack1", false);
             animator.SetBool("Attack2", false);
+            animator.SetBool("Attack3", true);
+            lastClickedTime = 0;
+            noOfClicks = 3;
+        }
+        if (lastClickedTime < maxComboDelay && lastClickedTime > 0.4f && noOfClicks == 3)
+        {
+            animator.SetBool("Attack3", false);
+            animator.SetBool("Attack2", false);
+            animator.SetBool("Attack1", false);
             lastClickedTime = 0;
             noOfClicks = 0;
         }
