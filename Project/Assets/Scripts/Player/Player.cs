@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
     public float force;
     private float throwback;
     private SpriteRenderer sprite;
+   
     public float boundarie1, boundarie2, boundarie3, boundarie4;
     public LayerMask layer;
     private float waitToJump;
@@ -44,6 +45,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
+        
         animator = spritePlayer.GetComponent<Animator>();
         vida = maxVida;
         noOfClicks = 0;
@@ -63,8 +65,9 @@ public class Player : MonoBehaviour
 
         if (iFrame < 2)
         {
+            var opacity = GetComponent<SpriteRenderer>().material.color;
             sprite.color = Color.red;
-
+            opacity.a = 0.5f;
             Physics2D.IgnoreLayerCollision(0, 11, true);
 
         }
