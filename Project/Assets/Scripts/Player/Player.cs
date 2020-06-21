@@ -65,12 +65,17 @@ public class Player : MonoBehaviour
     {
         iFrame += Time.deltaTime;
 
-        if (iFrame < 2)
+        if(iFrame < 0.5f)
         {
-            var opacity = GetComponent<SpriteRenderer>().material.color;
             sprite.color = Color.red;
-            opacity.a = 0.5f;
-            sprite.color = opacity;
+        }
+        else if (iFrame < 2)
+        {
+            sprite.color = Color.white;
+            //var opacity = GetComponent<SpriteRenderer>().material.color;
+            
+            //opacity.a = 0.4f;
+            sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, 0.5f);
             Physics2D.IgnoreLayerCollision(0, 11, true);
 
         }
@@ -106,7 +111,7 @@ public class Player : MonoBehaviour
             lastClickedTime = 0;
         }
         
-        if(Input.GetButtonDown("Fire1") && lastClickedTime < maxComboDelay && lastClickedTime > 0.5f && noOfClicks==0)
+        if(Input.GetButtonDown("Fire1") && lastClickedTime < maxComboDelay && lastClickedTime > 0.47f && noOfClicks==0)
         {
             animator.SetBool("Attack1", true);
             lastClickedTime = 0;

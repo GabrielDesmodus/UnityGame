@@ -26,11 +26,17 @@ public class Sword : MonoBehaviour
             enemy.TakeDamage(10);
             enemy.DamageSpriteF(true);
         }
+    }
 
-       
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        EN enemy = other.GetComponent<EN>();
 
-        
-
+        if (enemy != null && !canDoDamage)
+        {
+            enemy.TakeDamage(10);
+            enemy.DamageSpriteF(true);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)

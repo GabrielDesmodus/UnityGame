@@ -194,7 +194,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidade: 3
   SetVelocidade: 0
-  vida: 100
+  vida: 99999
   canFlip: 1
   canProjectile: 0
   projectile: {fileID: 0}
@@ -386,7 +386,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &47128764
 Animator:
   serializedVersion: 3
@@ -2792,7 +2792,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9436760781337464, guid: e356b63f81afa7544979be66a4e5c6d1, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9436760781337464, guid: e356b63f81afa7544979be66a4e5c6d1, type: 3}
       propertyPath: m_Layer
@@ -2915,7 +2915,7 @@ PrefabInstance:
     - target: {fileID: 673311336547180985, guid: f0ebf00edfbbc3c48bd3b85fccb16f8d,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 673311336547180985, guid: f0ebf00edfbbc3c48bd3b85fccb16f8d,
         type: 3}
@@ -3204,6 +3204,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.a
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3941451776825903652, guid: 97548eaa3247496448e662dd4c6fafde,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.109
+      objectReference: {fileID: 0}
+    - target: {fileID: 3941451776825903652, guid: 97548eaa3247496448e662dd4c6fafde,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 3941451776825903653, guid: 97548eaa3247496448e662dd4c6fafde,
+        type: 3}
+      propertyPath: canDoDamage
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97548eaa3247496448e662dd4c6fafde, type: 3}
