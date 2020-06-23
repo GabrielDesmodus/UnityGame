@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public bool estaNoChao;
     public Transform chaoVerificador;
     public Transform spritePlayer;
+    public Transform sword;
     private Animator animator;
     public int maxVida;
     public int vida;
@@ -37,7 +38,7 @@ public class Player : MonoBehaviour
         {
             sprite.color = Color.red;
         }
-        else if (iFrame < 2)
+        else if (iFrame < 1)
         {
             sprite.color = Color.white;
             sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, 0.5f);
@@ -46,6 +47,7 @@ public class Player : MonoBehaviour
         }
         else
         {
+            //animator.enabled = true;
             Physics2D.IgnoreLayerCollision(0, 11, false);
             sprite.color = Color.white;
 
@@ -59,7 +61,7 @@ public class Player : MonoBehaviour
     void Attack()
     {
 
-        if(lastClickedTime > maxComboDelay)
+        if(lastClickedTime > maxComboDelay || iFrame < 0.5f)
         {
             noOfClicks = 0;
             animator.SetBool("Attack1", false);
@@ -68,21 +70,21 @@ public class Player : MonoBehaviour
             lastClickedTime = 0;
         }
         
-        if(Input.GetButtonDown("Fire1") && lastClickedTime < maxComboDelay && lastClickedTime > 0.47f && noOfClicks==0)
+        if(Input.GetButtonDown("Fire1") && lastClickedTime < maxComboDelay && lastClickedTime > 0.47f && noOfClicks== 0 && iFrame > 1)
         {
             animator.SetBool("Attack1", true);
             lastClickedTime = 0;
             noOfClicks = 1;
             
         }
-        if (Input.GetButtonDown("Fire1") && lastClickedTime < maxComboDelay && lastClickedTime > 0.4f && noOfClicks==1)
+        if (Input.GetButtonDown("Fire1") && lastClickedTime < maxComboDelay && lastClickedTime > 0.4f && noOfClicks== 1 && iFrame > 1)
         {
             animator.SetBool("Attack1", false);
             animator.SetBool("Attack2", true);
             lastClickedTime = 0;
             noOfClicks = 2;
         }
-        if (Input.GetButtonDown("Fire1") && lastClickedTime < maxComboDelay && lastClickedTime > 0.4f && noOfClicks == 2)
+        if (Input.GetButtonDown("Fire1") && lastClickedTime < maxComboDelay && lastClickedTime > 0.4f && noOfClicks == 2 && iFrame > 1)
         {
             animator.SetBool("Attack1", false);
             animator.SetBool("Attack2", false);
@@ -90,7 +92,7 @@ public class Player : MonoBehaviour
             lastClickedTime = 0;
             noOfClicks = 3;
         }
-        if (lastClickedTime < maxComboDelay && lastClickedTime > 0.4f && noOfClicks == 3)
+        if (lastClickedTime < maxComboDelay && lastClickedTime > 0.6f && noOfClicks == 3 && iFrame > 1)
         {
             animator.SetBool("Attack3", false);
             animator.SetBool("Attack2", false);
