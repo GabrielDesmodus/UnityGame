@@ -28,13 +28,9 @@ public class projectileEN2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-       
-        GameObject Enemy = GameObject.Find("EN");
-        GameObject Enemy2 = GameObject.Find("EN2");  
-        Physics2D.IgnoreCollision(this.GetComponent<CapsuleCollider2D>(), Enemy.GetComponent<BoxCollider2D>());
-        Physics2D.IgnoreCollision(this.GetComponent<CapsuleCollider2D >(), Enemy2.GetComponent<BoxCollider2D>());
-        
+
+        Physics2D.IgnoreLayerCollision(11, 11, true);
+
     }
 
     private void OnCollisionEnter2D(Collision2D colisor)
