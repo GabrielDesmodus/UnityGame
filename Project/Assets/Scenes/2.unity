@@ -299,7 +299,7 @@ GameObject:
   - component: {fileID: 72814371}
   - component: {fileID: 72814370}
   m_Layer: 0
-  m_Name: 7
+  m_Name: Tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -378,7 +378,7 @@ GameObject:
   - component: {fileID: 75244490}
   - component: {fileID: 75244489}
   m_Layer: 0
-  m_Name: 14
+  m_Name: MainTree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -457,7 +457,7 @@ GameObject:
   - component: {fileID: 114493005}
   - component: {fileID: 114493004}
   m_Layer: 0
-  m_Name: 9
+  m_Name: Tree3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -537,7 +537,7 @@ GameObject:
   - component: {fileID: 271565421}
   - component: {fileID: 271565423}
   m_Layer: 8
-  m_Name: GameObject (2)
+  m_Name: Branch3
   m_TagString: Chao
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -614,7 +614,7 @@ GameObject:
   - component: {fileID: 346807406}
   - component: {fileID: 346807408}
   m_Layer: 8
-  m_Name: GameObject (4)
+  m_Name: Branch5
   m_TagString: Chao
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -690,7 +690,7 @@ GameObject:
   - component: {fileID: 454356197}
   - component: {fileID: 454356196}
   m_Layer: 0
-  m_Name: 10
+  m_Name: Leaves2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -769,7 +769,7 @@ GameObject:
   - component: {fileID: 559866420}
   - component: {fileID: 559866419}
   m_Layer: 0
-  m_Name: 13
+  m_Name: Rocks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -848,7 +848,7 @@ GameObject:
   - component: {fileID: 605847402}
   - component: {fileID: 605847401}
   m_Layer: 0
-  m_Name: 11
+  m_Name: Plants
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -928,7 +928,7 @@ GameObject:
   - component: {fileID: 841084270}
   - component: {fileID: 841084272}
   m_Layer: 8
-  m_Name: GameObject
+  m_Name: Branch1
   m_TagString: Chao
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1004,7 +1004,7 @@ GameObject:
   - component: {fileID: 880166683}
   - component: {fileID: 880166682}
   m_Layer: 0
-  m_Name: 3
+  m_Name: Grass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1271,7 +1271,7 @@ GameObject:
   - component: {fileID: 1114346582}
   - component: {fileID: 1114346581}
   m_Layer: 0
-  m_Name: 5
+  m_Name: OtherGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1350,7 +1350,7 @@ GameObject:
   - component: {fileID: 1167241757}
   - component: {fileID: 1167241756}
   m_Layer: 9
-  m_Name: 15
+  m_Name: Fog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1430,7 +1430,7 @@ GameObject:
   - component: {fileID: 1399979560}
   - component: {fileID: 1399979562}
   m_Layer: 0
-  m_Name: 17
+  m_Name: Blockade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1536,7 +1536,7 @@ GameObject:
   - component: {fileID: 1414060983}
   - component: {fileID: 1414060985}
   m_Layer: 8
-  m_Name: GameObject (1)
+  m_Name: Branch2
   m_TagString: Chao
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1612,7 +1612,7 @@ GameObject:
   - component: {fileID: 1511887307}
   - component: {fileID: 1511887306}
   m_Layer: 0
-  m_Name: 44
+  m_Name: Leaves
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1691,7 +1691,7 @@ GameObject:
   - component: {fileID: 1517233955}
   - component: {fileID: 1517233954}
   m_Layer: 0
-  m_Name: Blocker (1)
+  m_Name: Blocker2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1761,7 +1761,7 @@ GameObject:
   - component: {fileID: 1680081128}
   - component: {fileID: 1680081130}
   m_Layer: 8
-  m_Name: GameObject (5)
+  m_Name: Branch6
   m_TagString: Chao
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1838,7 +1838,7 @@ GameObject:
   - component: {fileID: 1695668674}
   - component: {fileID: 1695668673}
   m_Layer: 9
-  m_Name: extFog1 (1)
+  m_Name: extFog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1936,7 +1936,7 @@ GameObject:
   - component: {fileID: 1714864239}
   - component: {fileID: 1714864238}
   m_Layer: 9
-  m_Name: 16
+  m_Name: FogAndBlackTree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2016,7 +2016,7 @@ GameObject:
   - component: {fileID: 1767835119}
   - component: {fileID: 1767835118}
   m_Layer: 8
-  m_Name: GameObject (6)
+  m_Name: Branch7
   m_TagString: Chao
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2150,7 +2150,7 @@ GameObject:
   - component: {fileID: 1869604254}
   - component: {fileID: 1869604256}
   m_Layer: 8
-  m_Name: "Ret\xE2ngulo 1"
+  m_Name: Chao
   m_TagString: Chao
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2255,7 +2255,7 @@ GameObject:
   - component: {fileID: 1907889868}
   - component: {fileID: 1907889867}
   m_Layer: 0
-  m_Name: 2-Forest1
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2334,7 +2334,7 @@ GameObject:
   - component: {fileID: 1967960564}
   - component: {fileID: 1967960563}
   m_Layer: 0
-  m_Name: 8
+  m_Name: Tree2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2414,7 +2414,7 @@ GameObject:
   - component: {fileID: 1987936518}
   - component: {fileID: 1987936520}
   m_Layer: 8
-  m_Name: GameObject (3)
+  m_Name: Branch4
   m_TagString: Chao
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2490,7 +2490,7 @@ GameObject:
   - component: {fileID: 2091954231}
   - component: {fileID: 2091954230}
   m_Layer: 0
-  m_Name: 12
+  m_Name: Plants2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2864,6 +2864,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3941451776825903652, guid: 97548eaa3247496448e662dd4c6fafde,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.109
+      objectReference: {fileID: 0}
+    - target: {fileID: 3941451776825903652, guid: 97548eaa3247496448e662dd4c6fafde,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.95
+      objectReference: {fileID: 0}
     - target: {fileID: 3941451776889925872, guid: 97548eaa3247496448e662dd4c6fafde,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2984,20 +2994,15 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0.81
       objectReference: {fileID: 0}
+    - target: {fileID: 3941451776862830567, guid: 97548eaa3247496448e662dd4c6fafde,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 3941451778360389551, guid: 97548eaa3247496448e662dd4c6fafde,
         type: 3}
       propertyPath: m_Color.a
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3941451776825903652, guid: 97548eaa3247496448e662dd4c6fafde,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.109
-      objectReference: {fileID: 0}
-    - target: {fileID: 3941451776825903652, guid: 97548eaa3247496448e662dd4c6fafde,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.95
       objectReference: {fileID: 0}
     - target: {fileID: 3941451776825903653, guid: 97548eaa3247496448e662dd4c6fafde,
         type: 3}

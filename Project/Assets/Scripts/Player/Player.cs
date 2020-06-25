@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
         {
             sprite.color = Color.red;
         }
+
         else if (iFrame < 1)
         {
             sprite.color = Color.white;
@@ -45,6 +46,7 @@ public class Player : MonoBehaviour
             Physics2D.IgnoreLayerCollision(0, 11, true);
 
         }
+
         else
         {
             //animator.enabled = true;
@@ -60,7 +62,6 @@ public class Player : MonoBehaviour
 
     void Attack()
     {
-
         if(lastClickedTime > maxComboDelay || iFrame < 0.5f)
         {
             noOfClicks = 0;
@@ -77,6 +78,7 @@ public class Player : MonoBehaviour
             noOfClicks = 1;
             
         }
+
         if (Input.GetButtonDown("Fire1") && lastClickedTime < maxComboDelay && lastClickedTime > 0.4f && noOfClicks== 1 && iFrame > 1)
         {
             animator.SetBool("Attack1", false);
@@ -84,6 +86,7 @@ public class Player : MonoBehaviour
             lastClickedTime = 0;
             noOfClicks = 2;
         }
+
         if (Input.GetButtonDown("Fire1") && lastClickedTime < maxComboDelay && lastClickedTime > 0.4f && noOfClicks == 2 && iFrame > 1)
         {
             animator.SetBool("Attack1", false);
@@ -92,6 +95,7 @@ public class Player : MonoBehaviour
             lastClickedTime = 0;
             noOfClicks = 3;
         }
+
         if (lastClickedTime < maxComboDelay && lastClickedTime > 0.6f && noOfClicks == 3 && iFrame > 1)
         {
             animator.SetBool("Attack3", false);
@@ -100,26 +104,24 @@ public class Player : MonoBehaviour
             lastClickedTime = 0;
             noOfClicks = 0;
         }
-
     }
-
 
     //The enemy calls this function to deal damage to the player
     void Movimentacao()
     {
-        
-
         if (!estaNoChao)
         {
             rigidbody2D.gravityScale +=1;
             velocidade = 24;
 
         }
+
         else
         {
             rigidbody2D.gravityScale = 1;
             velocidade = 14;
         }
+
         if (Input.GetAxisRaw("Horizontal") > 0 && iFrame > 0.25f)
         {
             transform.Translate(Vector2.right * velocidade * Time.deltaTime);
@@ -147,7 +149,6 @@ public class Player : MonoBehaviour
     {
         if (iFrame > 1.5f)
         {
-            
             iFrame = 0;
             sprite.color = new Color(0.5283019f, 0f, 0f, 1f);
             vida -= (damage);
