@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        
         sprite = GetComponent<SpriteRenderer>();
         rigidbody2D = GetComponent<Rigidbody2D>();
         animator = spritePlayer.GetComponent<Animator>();
@@ -34,25 +35,16 @@ public class Player : MonoBehaviour
     {
         iFrame += Time.deltaTime;
 
-        if(iFrame < 0.1f)
+        if (iFrame < 1)
         {
-            sprite.color = Color.red;
-        }
-
-        else if (iFrame < 1)
-        {
-            sprite.color = Color.white;
             sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, 0.5f);
             Physics2D.IgnoreLayerCollision(0, 11, true);
-
         }
 
         else
         {
-            //animator.enabled = true;
             Physics2D.IgnoreLayerCollision(0, 11, false);
             sprite.color = Color.white;
-
         }
 
         lastClickedTime += Time.deltaTime;
@@ -68,10 +60,10 @@ public class Player : MonoBehaviour
             animator.SetBool("Attack1", false);
             animator.SetBool("Attack2", false);
             animator.SetBool("Attack3", false);
-            lastClickedTime = 0;
+            lastClickedTime = 0.4f;
         }
         
-        if(Input.GetButtonDown("Fire1") && lastClickedTime < maxComboDelay && lastClickedTime > 0.47f && noOfClicks== 0 && iFrame > 1)
+        if(Input.GetButtonDown("Fire1") && lastClickedTime < maxComboDelay && lastClickedTime > 0.4f && noOfClicks== 0 && iFrame > 1)
         {
             animator.SetBool("Attack1", true);
             lastClickedTime = 0;
@@ -96,7 +88,7 @@ public class Player : MonoBehaviour
             noOfClicks = 3;
         }
 
-        if (lastClickedTime < maxComboDelay && lastClickedTime > 0.6f && noOfClicks == 3 && iFrame > 1)
+        if (lastClickedTime < maxComboDelay && lastClickedTime > 0.6f && noOfClicks == 3 )
         {
             animator.SetBool("Attack3", false);
             animator.SetBool("Attack2", false);

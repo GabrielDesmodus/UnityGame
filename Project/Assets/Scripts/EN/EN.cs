@@ -33,7 +33,7 @@ public class EN : MonoBehaviour {
         damageSpriteRend = damageSprite.GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        animator.SetBool("walking", true);
+        //animator.SetBool("walking", true);
         vida = 100;
         death = false;
     }
