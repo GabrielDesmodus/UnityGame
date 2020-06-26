@@ -22,7 +22,6 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        
         sprite = GetComponent<SpriteRenderer>();
         rigidbody2D = GetComponent<Rigidbody2D>();
         animator = spritePlayer.GetComponent<Animator>();
@@ -132,9 +131,9 @@ public class Player : MonoBehaviour
             rigidbody2D.AddForce(transform.up * forcaPulo);
         }
 
-        estaNoChao = Physics2D.Linecast(transform.position, chaoVerificador.position, 1 << LayerMask.NameToLayer("Piso"));
         animator.SetFloat("movimento", Mathf.Abs(Input.GetAxisRaw("Horizontal")));
         estaNoChao = Physics2D.Linecast(transform.position, chaoVerificador.position, 1 << LayerMask.NameToLayer("Piso"));
+        estaNoChao = Physics2D.Raycast(chaoVerificador.position, -Vector2.up, 1, 1 << LayerMask.NameToLayer("Piso"));
         animator.SetBool("chao", estaNoChao);
     }
     public void TakeDamage(int damage)

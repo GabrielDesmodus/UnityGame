@@ -2969,6 +2969,11 @@ PrefabInstance:
       propertyPath: sword
       value: 
       objectReference: {fileID: 1555229822}
+    - target: {fileID: 3941451778360389545, guid: 97548eaa3247496448e662dd4c6fafde,
+        type: 3}
+      propertyPath: forcaPulo
+      value: 7500
+      objectReference: {fileID: 0}
     - target: {fileID: 3941451778360389544, guid: 97548eaa3247496448e662dd4c6fafde,
         type: 3}
       propertyPath: m_CollisionDetection
@@ -3008,6 +3013,21 @@ PrefabInstance:
         type: 3}
       propertyPath: canDoDamage
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3941451776825903642, guid: 97548eaa3247496448e662dd4c6fafde,
+        type: 3}
+      propertyPath: m_Direction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3941451776825903642, guid: 97548eaa3247496448e662dd4c6fafde,
+        type: 3}
+      propertyPath: m_UsedByEffector
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3941451776825903642, guid: 97548eaa3247496448e662dd4c6fafde,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97548eaa3247496448e662dd4c6fafde, type: 3}
