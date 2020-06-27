@@ -1153,6 +1153,21 @@ PrefabInstance:
       propertyPath: m_CullingMask.m_Bits
       value: 3383
       objectReference: {fileID: 0}
+    - target: {fileID: 212317569483977116, guid: b85ec510ba680c74d8144f09314321a1,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212317569483977116, guid: b85ec510ba680c74d8144f09314321a1,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.685
+      objectReference: {fileID: 0}
+    - target: {fileID: 212317569483977116, guid: b85ec510ba680c74d8144f09314321a1,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b85ec510ba680c74d8144f09314321a1, type: 3}
 --- !u!1 &1053635519

@@ -19,12 +19,16 @@ public class Player : MonoBehaviour
     public float iFrame; //Iframe time
     private SpriteRenderer sprite;
     private Rigidbody2D rigidbody2D;
+    private GameObject HB;
+    private HB hb;
 
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
         rigidbody2D = GetComponent<Rigidbody2D>();
         animator = spritePlayer.GetComponent<Animator>();
+        HB = GameObject.Find("HB");
+        hb = HB.GetComponent<HB>();
         vida = maxVida;
         noOfClicks = 0;
         iFrame = 2;
@@ -38,12 +42,14 @@ public class Player : MonoBehaviour
         {
             sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, 0.5f);
             Physics2D.IgnoreLayerCollision(0, 11, true);
+            hb.Damage(true);
         }
 
         else
         {
             Physics2D.IgnoreLayerCollision(0, 11, false);
             sprite.color = Color.white;
+            hb.Damage(false);
         }
 
         lastClickedTime += Time.deltaTime;
@@ -104,7 +110,6 @@ public class Player : MonoBehaviour
         {
             rigidbody2D.gravityScale +=1;
             velocidade = 24;
-
         }
 
         else
@@ -148,7 +153,7 @@ public class Player : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
-
+        
     }
 
 }
