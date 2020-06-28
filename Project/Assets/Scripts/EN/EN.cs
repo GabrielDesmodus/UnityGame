@@ -34,7 +34,7 @@ public class EN : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         //animator.SetBool("walking", true);
-        vida = 100;
+        vida = 500;
         death = false;
     }
 

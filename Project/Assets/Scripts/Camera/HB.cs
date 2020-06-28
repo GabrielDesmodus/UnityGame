@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class HB : MonoBehaviour {
 
-    public bool takeDamage;
-    private float hb = ((Screen.width/Screen.width)*2);   
-
+    private float hb = ((Screen.width/Screen.width)*2);  
     private int life;
     private GameObject Player;
     private Player playerScript;
