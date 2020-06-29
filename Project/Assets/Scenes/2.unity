@@ -1632,6 +1632,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1459307799}
   - component: {fileID: 1459307800}
+  - component: {fileID: 1459307801}
   m_Layer: 0
   m_Name: belt
   m_TagString: Untagged
@@ -1646,13 +1647,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1459307798}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.89, y: -2.9, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.2614311, w: 0.9652222}
+  m_LocalPosition: {x: -0.4, y: -3.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 337571368}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 30.31}
 --- !u!212 &1459307800
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1701,6 +1702,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!95 &1459307801
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459307798}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fde1e0d9d4de10b42864135c6d7630df, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1511887305
 GameObject:
   m_ObjectHideFlags: 0
@@ -2964,16 +2984,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 3941451776825903652, guid: 97548eaa3247496448e662dd4c6fafde,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.109
-      objectReference: {fileID: 0}
-    - target: {fileID: 3941451776825903652, guid: 97548eaa3247496448e662dd4c6fafde,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.95
-      objectReference: {fileID: 0}
     - target: {fileID: 3941451776889925872, guid: 97548eaa3247496448e662dd4c6fafde,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3029,6 +3039,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3941451776825903652, guid: 97548eaa3247496448e662dd4c6fafde,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.109
+      objectReference: {fileID: 0}
+    - target: {fileID: 3941451776825903652, guid: 97548eaa3247496448e662dd4c6fafde,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.95
+      objectReference: {fileID: 0}
     - target: {fileID: 3941451778360389545, guid: 97548eaa3247496448e662dd4c6fafde,
         type: 3}
       propertyPath: cc1
@@ -3074,6 +3094,11 @@ PrefabInstance:
       propertyPath: forcaPulo
       value: 7500
       objectReference: {fileID: 0}
+    - target: {fileID: 3941451778360389545, guid: 97548eaa3247496448e662dd4c6fafde,
+        type: 3}
+      propertyPath: belt_anim
+      value: 
+      objectReference: {fileID: 1459307801}
     - target: {fileID: 3941451778360389544, guid: 97548eaa3247496448e662dd4c6fafde,
         type: 3}
       propertyPath: m_CollisionDetection

@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public Transform spritePlayer;
     public Transform sword;
     private Animator animator;
+    public Animator belt_anim;
     public int maxVida;
     public int vida;
     public int noOfClicks;
@@ -136,10 +137,13 @@ public class Player : MonoBehaviour
             rigidbody2D.AddForce(transform.up * forcaPulo);
         }
 
+        belt_anim.SetFloat("yvelocity", rigidbody2D.velocity.y);
         animator.SetFloat("movimento", Mathf.Abs(Input.GetAxisRaw("Horizontal")));
+        belt_anim.SetFloat("movimento", Mathf.Abs(Input.GetAxisRaw("Horizontal")));
         estaNoChao = Physics2D.Linecast(transform.position, chaoVerificador.position, 1 << LayerMask.NameToLayer("Piso"));
         estaNoChao = Physics2D.Raycast(chaoVerificador.position, -Vector2.up, 1, 1 << LayerMask.NameToLayer("Piso"));
         animator.SetBool("chao", estaNoChao);
+        belt_anim.SetBool("chao", estaNoChao);
     }
     public void TakeDamage(int damage)
     {
