@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     public float maxComboDelay;
     public float iFrame; //Iframe time
     private SpriteRenderer sprite;
+    public SpriteRenderer belt_sprite;
     private Rigidbody2D rigidbody2D;
     private GameObject HB;
     private HB hb;
@@ -42,6 +43,7 @@ public class Player : MonoBehaviour
         if (iFrame < 1)
         {
             sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, 0.5f);
+            belt_sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, 0.5f);
             Physics2D.IgnoreLayerCollision(0, 11, true);
             hb.Damage(true);
         }
@@ -50,6 +52,7 @@ public class Player : MonoBehaviour
         {
             Physics2D.IgnoreLayerCollision(0, 11, false);
             sprite.color = Color.white;
+            belt_sprite.color = Color.white;
             hb.Damage(false);
         }
 

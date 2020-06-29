@@ -3099,6 +3099,11 @@ PrefabInstance:
       propertyPath: belt_anim
       value: 
       objectReference: {fileID: 1459307801}
+    - target: {fileID: 3941451778360389545, guid: 97548eaa3247496448e662dd4c6fafde,
+        type: 3}
+      propertyPath: belt_sprite
+      value: 
+      objectReference: {fileID: 1459307800}
     - target: {fileID: 3941451778360389544, guid: 97548eaa3247496448e662dd4c6fafde,
         type: 3}
       propertyPath: m_CollisionDetection
