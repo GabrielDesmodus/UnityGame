@@ -4,11 +4,11 @@ TextureImporter:
   fileIDToRecycleName:
     21300000: Belt_0
     21300002: Belt_1
-    21300004: Belt_2
+    21300004: Belt_1
     21300006: Belt_3
     21300008: Belt_4
     21300010: Belt_5
-    21300012: Belt_6
+    21300012: Belt_2
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -110,7 +110,7 @@ TextureImporter:
         width: 239
         height: 161
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -125,32 +125,12 @@ TextureImporter:
       name: Belt_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 170
-        width: 7
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dcc403fcabc86744da60e545cbd5e6b1
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Belt_2
-      rect:
-        serializedVersion: 2
         x: 12
         y: 170
         width: 229
         height: 94
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -162,67 +142,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Belt_3
-      rect:
-        serializedVersion: 2
-        x: 227
-        y: 182
-        width: 15
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 38faeb614104c5045a743b0c15e290e3
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Belt_4
-      rect:
-        serializedVersion: 2
-        x: 155
-        y: 170
-        width: 12
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fa880af7761aa17479b69c930050d99a
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Belt_5
-      rect:
-        serializedVersion: 2
-        x: 184
-        y: 171
-        width: 6
-        height: 4
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 616071ad02652974f96f51d2ed9460a8
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Belt_6
+      name: Belt_2
       rect:
         serializedVersion: 2
         x: 6
@@ -230,7 +150,7 @@ TextureImporter:
         width: 228
         height: 121
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
