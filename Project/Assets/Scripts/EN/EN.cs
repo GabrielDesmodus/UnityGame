@@ -8,6 +8,7 @@ public class EN : MonoBehaviour {
     private Animator animator;
     private bool atk;
     private Transform player;
+    private Controller controller;
     private float dist;
     private Vector3 playerDistance;
     private float wait;
@@ -34,6 +35,9 @@ public class EN : MonoBehaviour {
         damageSpriteRend = damageSprite.GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        //controller = GameObject.FindGameObjectWithTag("GameController").transform;
+        controller = new Controller();
+        
         //animator.SetBool("walking", true);
         vida = 500;
         death = false;
@@ -143,6 +147,7 @@ public class EN : MonoBehaviour {
                 GetComponent<Collider2D>().enabled = false;
                 GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
                 GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;
+                controller.EnemyCheck();
             }
 
             else

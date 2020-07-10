@@ -1958,7 +1958,7 @@ GameObject:
   - component: {fileID: 1689837404}
   m_Layer: 0
   m_Name: GameController
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1975,6 +1975,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2658ad809e67f8147b14a135494746e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemies: {fileID: 9436760781337464, guid: e356b63f81afa7544979be66a4e5c6d1, type: 3}
+  position: {x: -11.1, y: 50}
+  position2: {x: 0, y: 0}
+  position3: {x: 0, y: 0}
 --- !u!4 &1689837405
 Transform:
   m_ObjectHideFlags: 0
