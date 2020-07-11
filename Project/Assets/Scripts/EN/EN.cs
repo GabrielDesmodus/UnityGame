@@ -35,9 +35,9 @@ public class EN : MonoBehaviour {
         damageSpriteRend = damageSprite.GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        //controller = GameObject.FindGameObjectWithTag("GameController").transform;
-        controller = new Controller();
-        
+        controller = GameObject.FindGameObjectWithTag("GameController").transform.GetComponent<Controller>();
+        Debug.Log("Hi");
+        controller.EnemyAdd();
         //animator.SetBool("walking", true);
         vida = 500;
         death = false;
@@ -135,9 +135,13 @@ public class EN : MonoBehaviour {
     public void TakeDamage(int damage)
     {
         vida -= (damage);
- 
+
         if (vida <= 0 && death == false)
         {
+            Destroy(this.gameObject,1);
+            death = true;
+            controller.EnemyRemov();
+            
             if (isEN3 == false)
             {
                 death = true;
@@ -147,7 +151,7 @@ public class EN : MonoBehaviour {
                 GetComponent<Collider2D>().enabled = false;
                 GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
                 GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;
-                controller.EnemyCheck();
+               
             }
 
             else
@@ -158,6 +162,7 @@ public class EN : MonoBehaviour {
                 GetComponent<Collider2D>().enabled = false;
                 GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
                 GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;
+                
             }
         }
     }

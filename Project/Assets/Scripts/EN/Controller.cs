@@ -6,26 +6,25 @@ public class Controller : MonoBehaviour
 {
     public GameObject enemies;
     private Transform enemy;
-    public Vector2 position;
-    public Vector2 position2;
-    public Vector2 position3;
-
-    // Start is called before the first frame update
-    void Start()
+    public Vector3 position;
+    public Vector3 position2;
+    public Vector3 position3;
+    private int qty = 0;
+    List<GameObject> listOfOpponents = new List<GameObject>();
+    
+    public void EnemyAdd()
     {
-        enemy = GameObject.FindGameObjectWithTag("Enemy").transform;
+        qty++;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void EnemyRemov()
     {
-        
-    }
-
-    public void EnemyCheck()
-    {
-        if (enemy == null)
+        qty--;
+        Debug.Log(qty);
+  
+        if (qty<=0)
         {
+            Debug.Log("YES");
             InstantEnemy();
         }
     }
@@ -33,5 +32,6 @@ public class Controller : MonoBehaviour
     void InstantEnemy()
     {
         Instantiate(enemies, position, transform.rotation);
+        Instantiate(enemies, position2, transform.rotation);
     }
 }
