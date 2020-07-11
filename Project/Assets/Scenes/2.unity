@@ -1976,7 +1976,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies: {fileID: 9436760781337464, guid: e356b63f81afa7544979be66a4e5c6d1, type: 3}
-  position: {x: -11.1, y: 50, z: -22.8576}
+  position: {x: -11.1, y: 9, z: -22.8576}
   position2: {x: -28.2, y: 50, z: -22.8576}
   position3: {x: 0, y: 0, z: -22.8576}
 --- !u!4 &1689837405
