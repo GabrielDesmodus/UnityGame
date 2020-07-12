@@ -30,7 +30,6 @@ public class EN : MonoBehaviour {
 
     void Start()
     {
-       
         animator = GetComponent<Animator>();
         damageSprite = this.gameObject.transform.GetChild(0);
         damageSpriteRend = damageSprite.GetComponent<SpriteRenderer>();

@@ -122,6 +122,7 @@ MonoBehaviour:
   canProjectile: 0
   projectile: {fileID: 0}
   isEN3: 0
+  canWalk: 1
 --- !u!50 &9436760781337466
 Rigidbody2D:
   serializedVersion: 4

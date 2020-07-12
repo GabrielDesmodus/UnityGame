@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Controller : MonoBehaviour
 {
-    public GameObject enemies;
-    private Transform enemy;
+    public GameObject enemy;
+    public GameObject enemy2;
+    public GameObject enemy1s;
     public Vector3 position;
     public Vector3 position2;
     public Vector3 position3;
-    private int qty = 0;
+    private int qty;
+    private int wave;
     List<GameObject> listOfOpponents = new List<GameObject>();
     
     public void EnemyAdd()
@@ -31,7 +33,15 @@ public class Controller : MonoBehaviour
 
     void InstantEnemy()
     {
-        Instantiate(enemies, position, transform.rotation);
-        Instantiate(enemies, position2, transform.rotation);
+        wave++;
+        switch (wave)
+        {
+            case 1:
+                Instantiate(enemy1s, new Vector3(-6, 21, -22), transform.rotation);
+                Instantiate(enemy2, new Vector3(18, 14, -22), transform.rotation);
+                Instantiate(enemy1s, new Vector3(-35, 5, -22), transform.rotation);
+            break;
+        }
+        
     }
 }

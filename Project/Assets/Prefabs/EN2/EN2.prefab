@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 673311336135440784}
   - component: {fileID: 673311336135440786}
   - component: {fileID: 673311336135440787}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: damage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 673311336547180984}
   - component: {fileID: 673311336547180989}
   - component: {fileID: 673311336547180988}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EN2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -221,12 +221,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 0
-  dist: 0
   SetVelocidade: 0
   vida: 0
   canFlip: 0
   canProjectile: 1
-  projectile: {fileID: 0}
+  projectile: {fileID: 2680296489459406447, guid: d709baf4c80e04243bdc1a9aabc2a66f,
+    type: 3}
+  isEN3: 0
+  canWalk: 0
 --- !u!95 &673311336547180988
 Animator:
   serializedVersion: 3
