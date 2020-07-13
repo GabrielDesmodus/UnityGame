@@ -37,10 +37,16 @@ public class Controller : MonoBehaviour
         switch (wave)
         {
             case 1:
-                Instantiate(enemy1s, new Vector3(-6, 21, -22), transform.rotation);
-                Instantiate(enemy2, new Vector3(18, 14, -22), transform.rotation);
+                Instantiate(enemy1s, new Vector3(-6, 26, -22), Quaternion.Euler(0, 180, 0));
+                Instantiate(enemy2, new Vector3(4.74f, 30.84f, -22), Quaternion.Euler(0, 0, 0));
                 Instantiate(enemy1s, new Vector3(-35, 5, -22), transform.rotation);
-            break;
+                break;
+            case 2:
+                Instantiate(enemy1s, new Vector3(-6, 26, -22), Quaternion.Euler(0, 180, 0));
+                Instantiate(enemy2, new Vector3(4.74f, 30.84f, -22), Quaternion.Euler(0, 0, 0));
+                Instantiate(enemy1s, new Vector3(-35, 5, -22), transform.rotation);
+                break;
+
         }
         
     }
