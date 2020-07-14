@@ -223,7 +223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidade: 0
   SetVelocidade: 0
-  vida: 0
+  vida: 500
   canFlip: 1
   canProjectile: 1
   projectile: {fileID: 2680296489459406447, guid: d709baf4c80e04243bdc1a9aabc2a66f,

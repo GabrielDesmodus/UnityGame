@@ -129,7 +129,7 @@ Transform:
   m_GameObject: {fileID: 468435053365215212}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 14.2, y: 3.2, z: -22}
-  m_LocalScale: {x: 1, y: 1, z: 0.9738921}
+  m_LocalScale: {x: 1, y: 0.9, z: 0.9738921}
   m_Children:
   - {fileID: 468435051489580643}
   m_Father: {fileID: 0}
@@ -216,7 +216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidade: 3.5
   SetVelocidade: 3.5
-  vida: 100
+  vida: 250
   canFlip: 1
   canProjectile: 1
   projectile: {fileID: 4294025028207430319, guid: 36120bf518d418845a66e4e65f4ae62e,
@@ -268,5 +268,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.82, y: 8.462275}
+  m_Size: {x: 2.82, y: 7.86}
   m_EdgeRadius: 0

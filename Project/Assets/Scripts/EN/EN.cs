@@ -38,8 +38,7 @@ public class EN : MonoBehaviour {
         controller = GameObject.FindGameObjectWithTag("GameController").transform.GetComponent<Controller>();
         Debug.Log("Hi");
         controller.EnemyAdd();
-        //animator.SetBool("walking", true);
-        vida = 500;
+        velocidade = Random.Range(1.5f, 3.5f);
         death = false;
     }
 
