@@ -20,8 +20,8 @@ public class projectileEN2 : MonoBehaviour
         anim = GameObject.Find("Player").transform.GetComponent<Animator>();
         transform.position = new Vector3(transform.position.x, transform.position.y + 1.9f, transform.position.z);
        
-        this.GetComponent<Rigidbody2D>().AddForce(transform.right * -500);
-
+        this.GetComponent<Rigidbody2D>().AddForce(transform.right * 500);
+        Physics2D.IgnoreLayerCollision(11, 11, true);
 
     }
 
@@ -29,7 +29,7 @@ public class projectileEN2 : MonoBehaviour
     void Update()
     {
 
-        Physics2D.IgnoreLayerCollision(11, 11, true);
+        
 
     }
 

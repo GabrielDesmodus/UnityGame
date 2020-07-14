@@ -72,7 +72,15 @@ public class EN : MonoBehaviour {
         waitForProjectile += Time.deltaTime;
         if (death == false && waitForProjectile > 3)
         {
-            Instantiate(projectile, transform.position, transform.rotation);
+            if(transform.eulerAngles.y == 180)
+            {
+                Instantiate(projectile, new Vector3(transform.position.x-1, transform.position.y, transform.position.z), transform.rotation);
+            }
+            else if(transform.eulerAngles.y == 0)
+            {
+                Instantiate(projectile, new Vector3(transform.position.x+1, transform.position.y, transform.position.z), transform.rotation);
+            }
+           
             waitForProjectile = 0;
         }
     }

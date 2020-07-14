@@ -11,7 +11,7 @@ public class Controller : MonoBehaviour
     public Vector3 position2;
     public Vector3 position3;
     private int qty;
-    private int wave;
+    private int wave=0;
     List<GameObject> listOfOpponents = new List<GameObject>();
     
     public void EnemyAdd()
@@ -37,14 +37,14 @@ public class Controller : MonoBehaviour
         switch (wave)
         {
             case 1:
-                Instantiate(enemy1s, new Vector3(-6, 26, -22), Quaternion.Euler(0, 180, 0));
+                Instantiate(enemy1s, new Vector3(18.03f, 17.39f, -22), Quaternion.Euler(0, 180, 0));
                 Instantiate(enemy2, new Vector3(4.74f, 30.84f, -22), Quaternion.Euler(0, 0, 0));
                 Instantiate(enemy1s, new Vector3(-35, 5, -22), transform.rotation);
                 break;
             case 2:
-                Instantiate(enemy1s, new Vector3(-6, 26, -22), Quaternion.Euler(0, 180, 0));
-                Instantiate(enemy2, new Vector3(4.74f, 30.84f, -22), Quaternion.Euler(0, 0, 0));
-                Instantiate(enemy1s, new Vector3(-35, 5, -22), transform.rotation);
+                Instantiate(enemy, new Vector3(14.2f, 9.59f, -22), Quaternion.Euler(0, 180, 0));
+                Instantiate(enemy, new Vector3(-1.17f, 9.59f, -22), Quaternion.Euler(0, 0, 0));
+                Instantiate(enemy, new Vector3(-35.87f, 9.59f, -22), transform.rotation);
                 break;
 
         }
