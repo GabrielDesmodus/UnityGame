@@ -1874,7 +1874,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 43
   m_Sprite: {fileID: 21300000, guid: 8bd6582393dbff346822e84a499c0050, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.75686276}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2519,11 +2519,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 673311336135440786, guid: f0ebf00edfbbc3c48bd3b85fccb16f8d,
-        type: 3}
-      propertyPath: m_FlipX
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0ebf00edfbbc3c48bd3b85fccb16f8d, type: 3}
 --- !u!1001 &2680296488989391853
@@ -2995,11 +2990,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9436760781337470, guid: e356b63f81afa7544979be66a4e5c6d1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -39.48
+      value: -39.78
       objectReference: {fileID: 0}
     - target: {fileID: 9436760781337470, guid: e356b63f81afa7544979be66a4e5c6d1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.96
+      value: 7.26
       objectReference: {fileID: 0}
     - target: {fileID: 9436760781337470, guid: e356b63f81afa7544979be66a4e5c6d1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3037,6 +3032,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9436760781337466, guid: e356b63f81afa7544979be66a4e5c6d1, type: 3}
+      propertyPath: m_Constraints
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9436760781337466, guid: e356b63f81afa7544979be66a4e5c6d1, type: 3}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9436760781337409, guid: e356b63f81afa7544979be66a4e5c6d1, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.x
+      value: 0.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 9436760781337409, guid: e356b63f81afa7544979be66a4e5c6d1, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.5117135
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e356b63f81afa7544979be66a4e5c6d1, type: 3}
 --- !u!1001 &7237457125074428237
@@ -3054,12 +3065,12 @@ PrefabInstance:
     - target: {fileID: 468435053365215210, guid: 1f8e0d7bf4dd1b94d9df905a8b35f64b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.56
+      value: 3.42
       objectReference: {fileID: 0}
     - target: {fileID: 468435053365215210, guid: 1f8e0d7bf4dd1b94d9df905a8b35f64b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.59
+      value: 5.28
       objectReference: {fileID: 0}
     - target: {fileID: 468435053365215210, guid: 1f8e0d7bf4dd1b94d9df905a8b35f64b,
         type: 3}
