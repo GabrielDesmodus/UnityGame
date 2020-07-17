@@ -11,7 +11,7 @@ public class Controller : MonoBehaviour
     public Vector3 position2;
     public Vector3 position3;
     private int qty;
-    private int wave=4;
+    private int wave=0;
     List<GameObject> listOfOpponents = new List<GameObject>();
     
     public void EnemyAdd()
