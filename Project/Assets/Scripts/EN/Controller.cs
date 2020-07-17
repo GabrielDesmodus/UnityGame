@@ -60,6 +60,8 @@ public class Controller : MonoBehaviour
                 Instantiate(enemy1s, new Vector3(-39.78f, 9, -22), Quaternion.Euler(0, 180, 0));
                 Instantiate(enemy2, new Vector3(-11.1f, 24.16f, -22), Quaternion.Euler(0, 0, 0));
                 break;
+
+
         }
         
     }
