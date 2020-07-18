@@ -11,7 +11,8 @@ public class Controller : MonoBehaviour
     public Vector3 position2;
     public Vector3 position3;
     private int qty;
-    private int wave=0;
+    private int wave=5;
+    public Animator block;
     List<GameObject> listOfOpponents = new List<GameObject>();
     
     public void EnemyAdd()
@@ -27,6 +28,11 @@ public class Controller : MonoBehaviour
         {
             InstantEnemy();
         }
+    }
+
+    void Unlock()
+    {
+        block.SetBool("unblock", true);
     }
 
     void InstantEnemy()
@@ -61,7 +67,9 @@ public class Controller : MonoBehaviour
                 Instantiate(enemy2, new Vector3(-11.1f, 24.16f, -22), Quaternion.Euler(0, 0, 0));
                 break;
 
-
+            case 6:
+                Unlock();
+                break;  
         }
         
     }
