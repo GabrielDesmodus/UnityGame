@@ -33,6 +33,7 @@ public class Controller : MonoBehaviour
     void Unlock()
     {
         block.SetBool("unblock", true);
+        Destroy(block.gameObject, 1.227937f);
     }
 
     void InstantEnemy()
@@ -71,6 +72,5 @@ public class Controller : MonoBehaviour
                 Unlock();
                 break;  
         }
-        
     }
 }

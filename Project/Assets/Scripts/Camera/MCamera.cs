@@ -13,6 +13,7 @@ public class MCamera : MonoBehaviour {
     void Start () {
 
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        Debug.Log(Screen.width);
 
     }
 
