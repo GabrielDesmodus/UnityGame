@@ -1054,6 +1054,11 @@ PrefabInstance:
       propertyPath: mix
       value: -18.23
       objectReference: {fileID: 0}
+    - target: {fileID: 114358603869164158, guid: b85ec510ba680c74d8144f09314321a1,
+        type: 3}
+      propertyPath: zPosition
+      value: -32.88
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b85ec510ba680c74d8144f09314321a1, type: 3}
 --- !u!1 &1114346580

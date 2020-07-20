@@ -15,6 +15,8 @@ public class HB : MonoBehaviour {
         Player = GameObject.Find("Player");
         playerScript = Player.GetComponent<Player>();
         sprite = GetComponent<SpriteRenderer>();
+
+
     }
 	
 	void Update ()
