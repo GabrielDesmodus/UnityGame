@@ -18,7 +18,7 @@ public class MCamera : MonoBehaviour {
     private Transform leftCollider;
     private Transform rightCollider;
     private Vector3 cameraPos;
-
+    private Parallax parallax;
     private float horizontalMax;
 
     void Start () {
@@ -31,7 +31,16 @@ public class MCamera : MonoBehaviour {
         //horizontalMin = -halfWidth;
         horizontalMax = halfWidth;
 
-        
+        transform.position = new Vector3
+        (
+        Mathf.Clamp(transform.position.x, (mix + horizontalMax), max),
+        transform.position.y,
+        transform.position.z
+        );
+
+        parallax = GameObject.FindGameObjectWithTag("parallax").transform.GetComponent<Parallax>();
+        parallax.Reset();
+
     }
 
 	void Update () {
