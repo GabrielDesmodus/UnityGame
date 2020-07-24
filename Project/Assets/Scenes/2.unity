@@ -1044,6 +1044,11 @@ PrefabInstance:
       propertyPath: far clip plane
       value: 24.91
       objectReference: {fileID: 0}
+    - target: {fileID: 20602451942662612, guid: b85ec510ba680c74d8144f09314321a1,
+        type: 3}
+      propertyPath: m_NormalizedViewPortRect.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 212317569483977116, guid: b85ec510ba680c74d8144f09314321a1,
         type: 3}
       propertyPath: m_Color.r
@@ -1160,7 +1165,7 @@ PrefabInstance:
     - target: {fileID: 2756325329499737940, guid: b85ec510ba680c74d8144f09314321a1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -33.12
+      value: -52.63
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 83389102155633307, guid: b85ec510ba680c74d8144f09314321a1, type: 3}
