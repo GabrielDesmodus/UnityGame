@@ -28,17 +28,18 @@ public class MCamera : MonoBehaviour {
         float halfHeight = camera.orthographicSize;
         float halfWidth = camera.aspect * halfHeight;
 
-        //horizontalMin = -halfWidth;
-        horizontalMax = halfWidth;
-
-        transform.position = new Vector3
-        (
-        Mathf.Clamp(transform.position.x, (mix + horizontalMax), max),
-        transform.position.y,
-        transform.position.z
-        );
-
         parallax = GameObject.FindGameObjectWithTag("parallax").transform.GetComponent<Parallax>();
+        horizontalMax = halfWidth;
+        if(transform.position.x < mix + horizontalMax)
+        {
+            transform.position = new Vector3(mix + horizontalMax, transform.position.y, transform.position.z);
+        }
+
+        if (transform.position.x > max + horizontalMax)
+        {
+            transform.position = new Vector3(max + horizontalMax, transform.position.y, transform.position.z);
+        }
+
         parallax.Reset();
 
     }
@@ -51,19 +52,9 @@ public class MCamera : MonoBehaviour {
 
         transform.position = new Vector3
         (
-        Mathf.Clamp(transform.position.x, (mix + horizontalMax), max),
+        Mathf.Clamp(transform.position.x, (mix + horizontalMax), max - horizontalMax),
         transform.position.y,
         transform.position.z
         );
-
-        if (transform.position.y > may)
-        {
-            transform.position = new Vector3(transform.position.x, may, transform.position.z);
-        }
-
-        if (transform.position.y < miy)
-        {
-            transform.position = new Vector3(transform.position.x, miy, transform.position.z);
-        }
     }
 }

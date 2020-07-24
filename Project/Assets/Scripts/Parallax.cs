@@ -11,9 +11,14 @@ public class Parallax : MonoBehaviour
     private Vector3 reset_pos;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         reset_pos = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+    }
+
+    void Start()
+    {
+        
         cam = GameObject.FindGameObjectWithTag("MainCamera").transform;
         distance = cam.transform.position.x - transform.position.x;
     }
@@ -29,7 +34,7 @@ public class Parallax : MonoBehaviour
 
     public void Reset()
     {
-        transform.position = new Vector3(-8.5f, transform.position.y, transform.position.z);
+        transform.position = reset_pos;
         difference = 0;
     }
     
