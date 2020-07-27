@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D rigidbody2D;
     private GameObject HB;
     private HB hb;
+    private float wait_jump;
 
     void Start()
     {
@@ -35,10 +36,24 @@ public class Player : MonoBehaviour
         noOfClicks = 0;
         iFrame = 2;
     }
+    void FixedUpdate()
+    {
+        if (!estaNoChao)
+        {
+            rigidbody2D.gravityScale += 1;
+            velocidade = 24;
+        }
 
+        else
+        {
+            rigidbody2D.gravityScale = 1;
+            velocidade = 14;
+        }
+    }
     void Update()
     {
         iFrame += Time.deltaTime;
+        wait_jump += Time.deltaTime;
 
         if (iFrame < 1)
         {
@@ -110,17 +125,7 @@ public class Player : MonoBehaviour
     //The enemy calls this function to deal damage to the player
     void Movimentacao()
     {
-        if (!estaNoChao)
-        {
-            rigidbody2D.gravityScale +=1;
-            velocidade = 24;
-        }
-
-        else
-        {
-            rigidbody2D.gravityScale = 1;
-            velocidade = 14;
-        }
+        
 
         if (Input.GetAxisRaw("Horizontal") > 0 && iFrame > 0.25f)
         {
@@ -134,10 +139,10 @@ public class Player : MonoBehaviour
             transform.eulerAngles = new Vector2(0, 180);
         }
 
-        if (Input.GetButtonDown("Jump") && estaNoChao && iFrame > 1)
+        if (Input.GetButtonDown("Jump") && estaNoChao && iFrame > 1 && wait_jump >=1)
         {
-            
             rigidbody2D.AddForce(transform.up * forcaPulo);
+            wait_jump = 0;
         }
 
         belt_anim.SetFloat("yvelocity", rigidbody2D.velocity.y);
