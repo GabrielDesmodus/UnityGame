@@ -11,7 +11,7 @@ public class Controller : MonoBehaviour
     public Vector3 position2;
     public Vector3 position3;
     private int qty;
-    private int wave=5;
+    private int wave;
     public Animator block;
     List<GameObject> listOfOpponents = new List<GameObject>();
     
