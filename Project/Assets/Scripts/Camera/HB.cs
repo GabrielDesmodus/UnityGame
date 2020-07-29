@@ -4,22 +4,21 @@ using UnityEngine;
 
 public class HB : MonoBehaviour {
 
-    private float hb = ((Screen.width/Screen.width)*2);  
-    private int life;
+    private float hb = ((Screen.width/Screen.width));  
+    private float life;
     private GameObject Player;
     private Player playerScript;
     private SpriteRenderer sprite;
 
     void Start ()
     {
+        //transform.position = new Vector2((Screen.width / 2), transform.position.y);
         Player = GameObject.Find("Player");
         playerScript = Player.GetComponent<Player>();
         sprite = GetComponent<SpriteRenderer>();
-
-
     }
 	
-	void Update ()
+	void Update()
     { 
         Vida();
     }
@@ -27,24 +26,32 @@ public class HB : MonoBehaviour {
 
     void Vida()
     {
-        life = playerScript.vida;
-        if (life != 0)
-        {
-            transform.localScale = new Vector2((life * hb) / 400, transform.localScale.y);
-        } 
+        //life = playerScript.vida;
+        //if (life != 0)
+        //{
+        //    transform.localScale = new Vector2(((life/ 100)*2), 2);
+        //    sprite.color = Color.white;
+        //} 
     }
 
     public void Damage(bool active)
     {
+        life = playerScript.vida;
         if (active)
         {
-            transform.localScale = new Vector2(transform.localScale.x, 1);
+            transform.localScale = new Vector2(transform.localScale.x + (transform.localScale.x *Time.deltaTime*0.5f), 1);
             sprite.color = Color.cyan;
         }
-        else
+        else if (life != 0)
         {
+            transform.localScale = new Vector2(((life / 100) * 2), 2);
             sprite.color = Color.white;
-            transform.localScale = new Vector2(transform.localScale.x, 0.5f);
         }
+        //else
+        //{
+
+        //    sprite.color = Color.white;
+        //    transform.localScale = new Vector2(((life / 100) * 2), 2);
+        //}
     }
 }
