@@ -16,22 +16,12 @@ public class HB : MonoBehaviour {
         Player = GameObject.Find("Player");
         playerScript = Player.GetComponent<Player>();
         sprite = GetComponent<SpriteRenderer>();
+        Damage(false);
     }
 	
 	void Update()
     { 
-        Vida();
-    }
-
-
-    void Vida()
-    {
-        //life = playerScript.vida;
-        //if (life != 0)
-        //{
-        //    transform.localScale = new Vector2(((life/ 100)*2), 2);
-        //    sprite.color = Color.white;
-        //} 
+        
     }
 
     public void Damage(bool active)
@@ -39,19 +29,16 @@ public class HB : MonoBehaviour {
         life = playerScript.vida;
         if (active)
         {
-            transform.localScale = new Vector2(transform.localScale.x + (transform.localScale.x *Time.deltaTime*0.5f), 1);
-            sprite.color = Color.cyan;
+            transform.localScale = new Vector2(transform.localScale.x + (transform.localScale.x *Time.deltaTime*0.2f), transform.localScale.y);
+            transform.localScale = new Vector2(transform.localScale.x, transform.localScale.y - (transform.localScale.y * Time.deltaTime * 0.3f));
+            Color myColor = new Color();
+            ColorUtility.TryParseHtmlString("#FFCF00", out myColor);
+            sprite.color = myColor;
         }
         else if (life != 0)
         {
             transform.localScale = new Vector2(((life / 100) * 2), 2);
             sprite.color = Color.white;
         }
-        //else
-        //{
-
-        //    sprite.color = Color.white;
-        //    transform.localScale = new Vector2(((life / 100) * 2), 2);
-        //}
     }
 }
