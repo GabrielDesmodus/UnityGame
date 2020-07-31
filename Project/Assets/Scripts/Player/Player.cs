@@ -55,6 +55,7 @@ public class Player : MonoBehaviour
 
         if (iFrame < 1)
         {
+            
             sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, 0.5f);
             belt_sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, 0.5f);
             Physics2D.IgnoreLayerCollision(0, 11, true);
@@ -64,7 +65,9 @@ public class Player : MonoBehaviour
         else
         {
             Physics2D.IgnoreLayerCollision(0, 11, false);
-            sprite.color = Color.white;
+            Color myColor = new Color();
+            ColorUtility.TryParseHtmlString("#E0E0E0", out myColor);
+            sprite.color = myColor;
             belt_sprite.color = Color.white;
             hb.Damage(false);
         }

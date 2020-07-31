@@ -31,12 +31,15 @@ public class HB : MonoBehaviour {
         {
             transform.localScale = new Vector2(transform.localScale.x + (transform.localScale.x *Time.deltaTime*0.2f), transform.localScale.y);
             transform.localScale = new Vector2(transform.localScale.x, transform.localScale.y - (transform.localScale.y * Time.deltaTime * 0.3f));
+            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 5.4f);
+            
             Color myColor = new Color();
             ColorUtility.TryParseHtmlString("#FF0800", out myColor);
             sprite.color = myColor;
         }
         else if (life != 0)
         {
+            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0);
             transform.localScale = new Vector2(((life / 100) * 2), 2);
             sprite.color = Color.white;
         }
