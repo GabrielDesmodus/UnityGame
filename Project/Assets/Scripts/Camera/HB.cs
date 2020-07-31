@@ -32,7 +32,7 @@ public class HB : MonoBehaviour {
             transform.localScale = new Vector2(transform.localScale.x + (transform.localScale.x *Time.deltaTime*0.2f), transform.localScale.y);
             transform.localScale = new Vector2(transform.localScale.x, transform.localScale.y - (transform.localScale.y * Time.deltaTime * 0.3f));
             Color myColor = new Color();
-            ColorUtility.TryParseHtmlString("#FFCF00", out myColor);
+            ColorUtility.TryParseHtmlString("#FF0800", out myColor);
             sprite.color = myColor;
         }
         else if (life != 0)
