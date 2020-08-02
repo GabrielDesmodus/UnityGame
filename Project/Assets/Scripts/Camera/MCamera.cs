@@ -23,6 +23,7 @@ public class MCamera : MonoBehaviour {
     private Vector3 novaPosicao;
     private float halfHeight;
     private float camera_bigger;
+    private bool ext_control;
 
     void Start()
     {
@@ -53,30 +54,35 @@ public class MCamera : MonoBehaviour {
 	void Update()
     {
 
-        if (!ext_control)
-        {
-            transform.position = new Vector3(player.position.x, player.position.y, transform.position.z);
-            transform.position = new Vector3(Mathf.Clamp(transform.position.x, (mix + horizontalMax), max - horizontalMax), transform.position.y, transform.position.z);
-        }
-        else if (ext_control)
-        {
+        //if (!ext_control)
+        //{
+        //    transform.position = new Vector3(player.position.x, player.position.y, transform.position.z);
+        //    transform.position = new Vector3(Mathf.Clamp(transform.position.x, (mix + horizontalMax), max - horizontalMax), transform.position.y, transform.position.z);
+        //}
+        //else if (ext_control)
+        //{
 
-        }
-        
-        if (transform.position.x < mix + horizontalMax)
-        {
-            transform.position = new Vector3(mix + horizontalMax, transform.position.y, transform.position.z);
-        }
+        //}
 
-        if (transform.position.x > max + horizontalMax)
-        {
-            transform.position = new Vector3(max + horizontalMax, transform.position.y, transform.position.z);
-        }
+        //if (transform.position.x < mix + horizontalMax)
+        //{
+        //    transform.position = new Vector3(mix + horizontalMax, transform.position.y, transform.position.z);
+        //}
 
+        //if (transform.position.x > max + horizontalMax)
+        //{
+        //    transform.position = new Vector3(max + horizontalMax, transform.position.y, transform.position.z);
+        //}
+        if(!ext_control)
+        {
+            SetPosition(false, player.position.x, player.position.y);
+        }
     }
 
-    void SetPosition()
+    public void SetPosition(bool active, float x, float y)
     {
-        ext_control
+        ext_control = active;
+        transform.position = new Vector3(x, y, transform.position.z);
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, (mix + horizontalMax), max - horizontalMax), transform.position.y, transform.position.z);
     }
 }
