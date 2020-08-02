@@ -11,10 +11,16 @@ public class Controller : MonoBehaviour
     public Vector3 position2;
     public Vector3 position3;
     private int qty;
-    private int wave;
+    private int wave=5;
     public Animator block;
+    private Transform camera;
     List<GameObject> listOfOpponents = new List<GameObject>();
     
+    void Start()
+    {
+        camera = GameObject.FindGameObjectWithTag("MainCamera").transform;
+    }
+
     public void EnemyAdd()
     {
         qty++;
@@ -32,8 +38,10 @@ public class Controller : MonoBehaviour
 
     void Unlock()
     {
+        camera.position = new Vector3(2.65f, 0.27f, camera.position.z);
         block.SetBool("unblock", true);
         Destroy(block.gameObject, 1.227937f);
+        Time.timeScale = 0;
     }
 
     void InstantEnemy()
@@ -69,7 +77,7 @@ public class Controller : MonoBehaviour
                 break;
 
             case 6:
-                Unlock();
+                Unlock(); 
                 break;  
         }
     }

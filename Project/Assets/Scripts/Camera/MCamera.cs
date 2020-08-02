@@ -23,8 +23,9 @@ public class MCamera : MonoBehaviour {
     private Vector3 novaPosicao;
     private float halfHeight;
     private float camera_bigger;
-    void Start () {
 
+    void Start()
+    {
         camera = Camera.main;
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
@@ -51,11 +52,17 @@ public class MCamera : MonoBehaviour {
 
 	void Update()
     {
-      
-        Vector3 novaPosicao = new Vector3(player.position.x, player.position.y, transform.position.z);
-        transform.position = novaPosicao;
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, (mix + horizontalMax), max - horizontalMax),transform.position.y,transform.position.z);
 
+        if (!ext_control)
+        {
+            transform.position = new Vector3(player.position.x, player.position.y, transform.position.z);
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, (mix + horizontalMax), max - horizontalMax), transform.position.y, transform.position.z);
+        }
+        else if (ext_control)
+        {
+
+        }
+        
         if (transform.position.x < mix + horizontalMax)
         {
             transform.position = new Vector3(mix + horizontalMax, transform.position.y, transform.position.z);
@@ -66,5 +73,10 @@ public class MCamera : MonoBehaviour {
             transform.position = new Vector3(max + horizontalMax, transform.position.y, transform.position.z);
         }
 
+    }
+
+    void SetPosition()
+    {
+        ext_control
     }
 }

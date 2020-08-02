@@ -48,10 +48,12 @@ public class Player : MonoBehaviour
             rigidbody2D.gravityScale = 1;
             velocidade = 14;
         }
+        iFrame += Time.deltaTime;
+        lastClickedTime += Time.deltaTime;
     }
     void Update()
     {
-        iFrame += Time.deltaTime;
+        
 
         if (iFrame < 1)
         {
@@ -72,7 +74,7 @@ public class Player : MonoBehaviour
             hb.Damage(false);
         }
 
-        lastClickedTime += Time.deltaTime;
+        
         Attack();
         Movimentacao();
     }
