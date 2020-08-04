@@ -15,7 +15,14 @@ public class Controller : MonoBehaviour
     public Animator block;
     private MCamera camera;
     List<GameObject> listOfOpponents = new List<GameObject>();
+    private float wait_for_anim;
     
+
+    void FixedUpdate()
+    {
+        wait_for_anim = Time.unscaledDeltaTime;
+
+    }
     void Start()
     {
         camera = GameObject.FindGameObjectWithTag("MainCamera").transform.GetComponent<MCamera>();
@@ -38,10 +45,17 @@ public class Controller : MonoBehaviour
 
     void Unlock()
     {
+        Time.timeScale = 0;
+        wait_for_anim = 0;
+        Debug.Log(wait_for_anim);
         camera.SetPosition(true,2.65f, 0.27f);
         block.SetBool("unblock", true);
-        Destroy(block.gameObject, 1.227937f);
-        Time.timeScale = 0;
+        if (wait_for_anim >= 1.227937f)
+        {
+            Debug.Log("FALA FIOTE");
+            Destroy(block.gameObject, 1.227937f);
+        }
+        
     }
 
     void InstantEnemy()
