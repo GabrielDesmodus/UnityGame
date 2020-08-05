@@ -11,20 +11,22 @@ public class Controller : MonoBehaviour
     public Vector3 position2;
     public Vector3 position3;
     private int qty;
-    private int wave=5;
+    private int wave;
     public Animator block;
     private MCamera camera;
     List<GameObject> listOfOpponents = new List<GameObject>();
     private float wait_for_anim;
+    private bool unlock;
     
 
-    void FixedUpdate()
+    void Update()
     {
-        wait_for_anim = Time.unscaledDeltaTime;
-
+        Debug.Log(wait_for_anim);
+        Unlock(unlock);
     }
     void Start()
     {
+        wait_for_anim = 0;
         camera = GameObject.FindGameObjectWithTag("MainCamera").transform.GetComponent<MCamera>();
     }
 
@@ -43,19 +45,21 @@ public class Controller : MonoBehaviour
         }
     }
 
-    void Unlock()
+    void Unlock(bool active)
     {
-        Time.timeScale = 0;
-        wait_for_anim = 0;
-        Debug.Log(wait_for_anim);
-        camera.SetPosition(true,2.65f, 0.27f);
-        block.SetBool("unblock", true);
-        if (wait_for_anim >= 1.227937f)
+        if (active)
         {
-            Debug.Log("FALA FIOTE");
-            Destroy(block.gameObject, 1.227937f);
+            wait_for_anim += Time.unscaledDeltaTime;
+            camera.SetPosition(true, 2.65f, 0.27f);
+            
+            if(wait_for_anim>= 1.227937f)
+            {
+                Destroy(block.gameObject);
+                camera.SetPosition(false, 2.65f, 0.27f);
+                Time.timeScale = 1;
+                unlock = false;
+            }    
         }
-        
     }
 
     void InstantEnemy()
@@ -91,7 +95,10 @@ public class Controller : MonoBehaviour
                 break;
 
             case 6:
-                Unlock(); 
+                wait_for_anim = 0;
+                unlock = true;
+                block.SetBool("unblock", true);
+                Time.timeScale = 0;
                 break;  
         }
     }
