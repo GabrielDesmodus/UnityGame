@@ -48,7 +48,7 @@ public class MCamera : MonoBehaviour {
         {
             transform.position = new Vector3(max + horizontalMax, transform.position.y, transform.position.z);
         }
-        parallax.Reset();
+        //parallax.Reset();
     }
 
 	void Update()

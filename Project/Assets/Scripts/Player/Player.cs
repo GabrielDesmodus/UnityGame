@@ -128,8 +128,6 @@ public class Player : MonoBehaviour
     //The enemy calls this function to deal damage to the player
     void Movimentacao()
     {
-        
-
         if (Input.GetAxisRaw("Horizontal") > 0 && iFrame > 0.25f)
         {
             transform.Translate(Vector2.right * velocidade * Time.deltaTime);
